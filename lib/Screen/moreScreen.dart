@@ -168,7 +168,7 @@ class _MoreScreenState extends State<MoreScreen> {
                 height: 1,
               ),
 
-              ListItem("App Setting"),
+              InkWell(child: ListItem("App Setting"),onTap: (){},),
               ListItem("Account"),
               ListItem("Help"),
               ListItem("Sign Out"),

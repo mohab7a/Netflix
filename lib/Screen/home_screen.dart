@@ -12,17 +12,18 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            backgroundColor: Colors.black54.withOpacity(.9),
+            backgroundColor: Colors.transparent,
             floating: true,
-            //snap: true,
+            snap: true,
             // pinned: true,
             toolbarHeight: 50,
             //stretch: true,
-            expandedHeight: MediaQuery.of(context).size.height / 1.8,
-            elevation: 1,
+            //expandedHeight: MediaQuery.of(context).size.height / 1.8,
+            elevation: 0,
             automaticallyImplyLeading: false,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -68,14 +69,16 @@ class HomeScreen extends StatelessWidget {
                 )
               ],
             ),
-            flexibleSpace: FlexibleSpaceBar(
-              background: InkWell(
+          ),
+          SliverList(delegate: SliverChildListDelegate(
+            [
+              InkWell(
                 onTap: () {
                   Navigator.pushNamed(context, MovieScreen.routeName);
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height / 2,
+                  height:MediaQuery.of(context).size.height / 1.8,
                   child: Column(
                     children: [
                       SizedBox(height: MediaQuery.of(context).size.height / 2.3,),
@@ -85,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                           Text.rich(
                             TextSpan(
                                 text:
-                                    'Future  •  Sci-fi  •  Apocalypse  •  Netflix Original'),
+                                'Future  •  Sci-fi  •  Apocalypse  •  Netflix Original'),
                             style: TextStyle(color: Colors.white, fontSize: 13),
                           )
                         ],
@@ -135,7 +138,7 @@ class HomeScreen extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        DetailsPage(data: 'Alc')),
+                                        DetailsPage()),
                               );
                             },
                             child: Column(
@@ -157,44 +160,15 @@ class HomeScreen extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                    image: AssetImage('assets/Intro.jpg'),
-                    fit: BoxFit.fill,
-                    colorFilter: ColorFilter.mode(
-                        Colors.black.withOpacity(0.5), BlendMode.multiply),
-                  )),
+                        image: AssetImage('assets/Intro.jpg'),
+                        fit: BoxFit.fill,
+                        colorFilter: ColorFilter.mode(
+                            Colors.black.withOpacity(0.5), BlendMode.multiply),
+                      )),
                 ),
               ),
-            ),
-          ),
-          // SliverList(delegate: SliverChildListDelegate([
-          //   Container(
-          //     padding: EdgeInsets.all(10),
-          //     child: Center(
-          //         child:new Column(
-          //           mainAxisAlignment: MainAxisAlignment.start,
-          //           children: <Widget>[
-          //             SizedBox(
-          //               width: double.infinity,
-          //               height: 100.0,
-          //             ),
-          //             // Container(
-          //             //   height: 150,
-          //             //   width: double.infinity,
-          //             //   padding: EdgeInsets.all(20),
-          //             //   child:
-          //             //   Image.asset('assets/alclogo.png'),
-          //             // ),
-          //             SizedBox(
-          //               width: double.infinity,
-          //               height: 200.0,
-          //             ),
-          //             new
-          //             SizedBox(
-          //               width: double.infinity,
-          //               height: 20.0,
-          //             ),
-          //             new
-          //
+            ]
+          )),
           SliverList(
             delegate: SliverChildListDelegate(
               [
