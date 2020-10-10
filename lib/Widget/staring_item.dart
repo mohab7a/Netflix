@@ -18,7 +18,7 @@ class StaringItem extends StatelessWidget {
                   border: Border.all(color: Colors.red, width: 3),
                 ),
                 child: CircleAvatar(
-                  backgroundImage: AssetImage('assets/blur.png'),
+                  backgroundImage: AssetImage('assets/Vampire.jpg',),
                   maxRadius: 50,
                 ),
               ),

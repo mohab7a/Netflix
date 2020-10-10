@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:netflix_app/Screen/movie_screen.dart';
 import 'package:netflix_app/Widget/staring_item.dart';
 import 'package:netflix_app/Widget/recommended_item.dart';
 import 'package:netflix_app/Widget/trend_item.dart';
@@ -72,100 +71,95 @@ class HomeScreen extends StatelessWidget {
           ),
           SliverList(delegate: SliverChildListDelegate(
             [
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, MovieScreen.routeName);
-                },
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height:MediaQuery.of(context).size.height / 1.8,
-                  child: Column(
-                    children: [
-                      SizedBox(height: MediaQuery.of(context).size.height / 2.3,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text.rich(
-                            TextSpan(
-                                text:
-                                'Future  •  Sci-fi  •  Apocalypse  •  Netflix Original'),
-                            style: TextStyle(color: Colors.white, fontSize: 13),
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          FlatButton(
-                            textColor: Colors.white70,
-                            onPressed: () {},
-                            child:  Column(
-                              children: <Widget>[
-                                IconButton(
-                                  icon: Icon(Icons.done, color: Colors.white),
-                                  onPressed: () {
-                                    _showToast(context);
-                                  },
-                                ),
-                                Text('My List')
-                              ],
-                            ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height:MediaQuery.of(context).size.height / 1.8,
+                child: Column(
+                  children: [
+                    SizedBox(height: MediaQuery.of(context).size.height / 2.3,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text.rich(
+                          TextSpan(
+                              text:
+                              'Future  •  Sci-fi  •  Apocalypse  •  Netflix Original'),
+                          style: TextStyle(color: Colors.white, fontSize: 13),
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        FlatButton(
+                          textColor: Colors.white70,
+                          onPressed: () {},
+                          child:  Column(
+                            children: <Widget>[
+                              IconButton(
+                                icon: Icon(Icons.done, color: Colors.white),
+                                onPressed: () {
+                                  _showToast(context);
+                                },
+                              ),
+                              Text('My List')
+                            ],
                           ),
-                          SizedBox(
-                            width: 10,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        FlatButton(
+                          color: Colors.white,
+                          onPressed: () {},
+                          child:  Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Icon(Icons.play_arrow,color: Colors.black,size: 25,),
+                              Text(
+                                'Play',
+                                style: TextStyle(color: Colors.black,fontSize: 18),
+                              )
+                            ],
                           ),
-                          FlatButton(
-                            color: Colors.white,
-                            onPressed: () {},
-                            child:  Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: <Widget>[
-                                Icon(Icons.play_arrow,color: Colors.black,size: 25,),
-                                Text(
-                                  'Play',
-                                  style: TextStyle(color: Colors.black,fontSize: 18),
-                                )
-                              ],
-                            ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        FlatButton(
+                          textColor: Colors.white70,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      DetailsPage()),
+                            );
+                          },
+                          child: Column(
+                            children: <Widget>[
+                              Icon(
+                                Icons.info_outline,
+                                color: Colors.white,
+                              ),
+                              SizedBox(
+                                height: 8,
+                              ),
+                              Text('Info')
+                            ],
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          FlatButton(
-                            textColor: Colors.white70,
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        DetailsPage()),
-                              );
-                            },
-                            child: Column(
-                              children: <Widget>[
-                                Icon(
-                                  Icons.info_outline,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  height: 8,
-                                ),
-                                Text('Info')
-                              ],
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/Intro.jpg'),
-                        fit: BoxFit.fill,
-                        colorFilter: ColorFilter.mode(
-                            Colors.black.withOpacity(0.5), BlendMode.multiply),
-                      )),
+                        )
+                      ],
+                    )
+                  ],
                 ),
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/Intro.jpg'),
+                      fit: BoxFit.fill,
+                      colorFilter: ColorFilter.mode(
+                          Colors.black.withOpacity(0.5), BlendMode.multiply),
+                    )),
               ),
             ]
           )),

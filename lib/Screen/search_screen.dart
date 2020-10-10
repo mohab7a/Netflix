@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class SearchScreen extends StatelessWidget {
   static String routeName='/SearchScreen';
   @override
   Widget build(BuildContext context) {
      return Scaffold(
+       backgroundColor: Colors.black87,
        body: CustomScrollView(
          slivers: <Widget>[
            SliverAppBar(
@@ -13,6 +13,7 @@ class SearchScreen extends StatelessWidget {
              //floating: true,
              pinned: true,
              //snap: true,
+             //toolbarHeight: 100,
              elevation: 0,
              backgroundColor: Colors.black,
                  flexibleSpace: FlexibleSpaceBar(
@@ -48,14 +49,26 @@ class SearchScreen extends StatelessWidget {
                            children: [
                              InkWell(
                                onTap:(){},
-                               child: ListTile(
-                                 contentPadding: EdgeInsets.all(10),
-                                 leading: Image.asset('assets/Intro.jpg',height: 150,width: 100,),
-                                 title: Text('Amar',style: TextStyle(color: Colors.white),),
-                                 trailing: IconButton(icon: Icon(Icons.play_arrow,color: Colors.white,),),
+                               child: Container(
+                                 height:80,
+                                 width:double.infinity,
+                                 margin: EdgeInsets.only(bottom: 3),
+                                 color: Colors.grey[900],
+                                 child: Row(
+                                   children: [
+
+                                      Padding(
+                                        padding: const EdgeInsets.only(right: 10,left: 1),
+                                        child: ClipRRect(borderRadius: BorderRadius.circular(8),child: Image.asset('assets/Intro.jpg')),
+                                      ),
+                                     Text('Amar',style: TextStyle(color: Colors.white),),
+                                     Spacer(),
+                                     IconButton(icon: Icon(Icons.play_arrow,color: Colors.white,),),
+                                   ],
+                                 )
                                ),
                              ),
-                             Divider(color: Colors.white38,),
+                            // Divider(color: Colors.black12,thickness: .5,),
                            ],
                          );
          },

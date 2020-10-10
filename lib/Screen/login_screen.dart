@@ -54,11 +54,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       TextFormField(
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(20),
+                          contentPadding: EdgeInsets.all(22),
                           filled: true,
                           fillColor: Colors.grey,
-                           labelText: 'Email or phone number',
-                          labelStyle: TextStyle(color: Colors.white54, fontSize: 25,),
+                           hintText: 'Email or phone number',
+                          hintStyle: TextStyle(color: Colors.white54, fontSize: 20,),
                           alignLabelWithHint: true,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(
@@ -66,13 +66,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             borderSide: BorderSide.none,
                           ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(1),
-                            ),
-                            borderSide: BorderSide.none,
-                          ),
                         ),
+                        autofocus: true,
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.emailAddress,
                         onFieldSubmitted: (_) {
@@ -84,11 +79,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       TextFormField(
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(25),
+                          contentPadding: EdgeInsets.all(22),
                           filled: true,
                           fillColor: Colors.grey,
-                          labelText: 'Password',
-                          labelStyle: TextStyle(color: Colors.white54, fontSize: 25),
+                          hintText: 'Password',
+                          hintStyle: TextStyle(color: Colors.white54, fontSize: 20),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(10.0),

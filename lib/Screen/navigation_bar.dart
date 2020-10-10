@@ -51,7 +51,7 @@ class _NavigationBarState extends State<NavigationBar> {
         ],
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
-        backgroundColor: Colors.black54,
+        backgroundColor: Colors.black,
         type: BottomNavigationBarType.fixed,
 
       ),

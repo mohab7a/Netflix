@@ -1,31 +1,27 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'Widget/episode_block.dart';
 import 'big_button.dart';
 import 'film_card.dart';
+
+
 class DetailsPage extends StatefulWidget {
   @override
   _DetailsPageState createState() => _DetailsPageState();
 }
-class _DetailsPageState extends State<DetailsPage> with SingleTickerProviderStateMixin {
+
+class _DetailsPageState extends State<DetailsPage>
+    with SingleTickerProviderStateMixin {
   TabController _tabController;
 
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: 2);
   }
-
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            size: 30,
-            color: Colors.white,
-          ),
-          onPressed: () {},
-        ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
@@ -53,12 +49,12 @@ class _DetailsPageState extends State<DetailsPage> with SingleTickerProviderStat
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
                             image: DecorationImage(
-                                image: AssetImage("images/Vampire.jpg"),
-                                fit: BoxFit.cover)),
+                                image: AssetImage("assets/Vampire.jpg"),
+                                fit: BoxFit.fill)),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 20),
+                      padding: EdgeInsets.symmetric(vertical: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -70,12 +66,12 @@ class _DetailsPageState extends State<DetailsPage> with SingleTickerProviderStat
                                       color: Colors.green,
                                       fontSize: 16),
                                   children: [
-                                    TextSpan(
-                                        text: "    2017",
-                                        style: TextStyle(
-                                          color: Colors.grey,
-                                        ))
-                                  ])),
+                                TextSpan(
+                                    text: "    2017",
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                    ))
+                              ])),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Container(
@@ -122,7 +118,6 @@ class _DetailsPageState extends State<DetailsPage> with SingleTickerProviderStat
               text: "Play",
               iconColor: Colors.black,
               icon: Icons.play_arrow,
-
             ),
             Button(
               color: Colors.grey.shade900,
@@ -130,12 +125,10 @@ class _DetailsPageState extends State<DetailsPage> with SingleTickerProviderStat
               text: "Download S1:E1",
               iconColor: Colors.white,
               icon: Icons.arrow_downward,
-
             ),
-
             Padding(
               padding:
-              const EdgeInsets.symmetric(vertical: 10, horizontal: 2.5),
+                  const EdgeInsets.symmetric(vertical: 10, horizontal: 2.5),
               child: Text(
                 "The lives, loves, dangers and disasters in the town, Mystic Falls a teenage girl is suddenly torn between two vampire brothers.",
                 maxLines: 3,
@@ -253,9 +246,9 @@ class _DetailsPageState extends State<DetailsPage> with SingleTickerProviderStat
                   indicator: BoxDecoration(
                       border: Border(
                           top: BorderSide(
-                            width: 4,
-                            color: Colors.red,
-                          ))),
+                    width: 4,
+                    color: Colors.red,
+                  ))),
                   controller: _tabController,
                   tabs: [
                     Tab(
@@ -267,21 +260,19 @@ class _DetailsPageState extends State<DetailsPage> with SingleTickerProviderStat
                   ]),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 1.5,
+              height: MediaQuery.of(context).size.height,
               child: TabBarView(controller: _tabController, children: [
                 Column(
                   children: [
-                    FilmCard(),
-                    FilmCard(),
-                    FilmCard(),
-                    FilmCard(),
-                    FilmCard(),
-                    FilmCard(),
-                    FilmCard(),
+                    episodeBlock("1.Pilot"),
+                    episodeBlock("1.Pilot"),
+                    episodeBlock("1.Pilot"),
+                    episodeBlock("1.Pilot"),
+                    episodeBlock("1.Pilot"),
+             
                   ],
                 ),
                 Column(
-
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -327,16 +318,6 @@ class _DetailsPageState extends State<DetailsPage> with SingleTickerProviderStat
                         FilmGridCard(),
                       ],
                     ),
-                    Spacer(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        FilmGridCard(),
-                        FilmGridCard(),
-                        FilmGridCard(),
-                      ],
-                    ),
-
                   ],
                 )
               ]),
@@ -597,72 +578,3 @@ class _DetailsPageState extends State<DetailsPage> with SingleTickerProviderStat
 //     );
 //   }
 //
-//   Container episodeBlock(epTitle) {
-//     return Container(
-//                 height: 150,
-//                 padding: EdgeInsets.symmetric(vertical: 2,horizontal: 10),
-//                 child: Column(
-//                   children: <Widget>[
-//                     Row(
-//                       children: <Widget>[
-//                         Column(
-//                           crossAxisAlignment: CrossAxisAlignment.start,
-//                           mainAxisAlignment: MainAxisAlignment.start,
-//                           children: <Widget>[
-//                           Container(
-//                           decoration: BoxDecoration(
-//                             image: DecorationImage(
-//                               image: AssetImage(SeriesData().series[data]['thumbnail'],),
-//                               fit: BoxFit.cover,
-//                               colorFilter: ColorFilter.mode(Colors.black,BlendMode.softLight)
-//                             )
-//                           ),
-//                           width: 100,
-//                           height: 60,
-//                           child: Center(
-//                             child: Icon(Icons.play_arrow,size:35,color:Colors.white),
-//                           )
-//                         ),
-//                         SizedBox(height:2,child: Container(width:60,color:Colors.red),)
-//                           ],
-//                         ),
-//                         SizedBox(width:10),
-//                         Column(
-//                           mainAxisAlignment: MainAxisAlignment.start,
-//                           crossAxisAlignment: CrossAxisAlignment.start,
-//                           children: <Widget>[
-//                             Text(
-//                           epTitle,
-//                           style: TextStyle(
-//                             color: Colors.white,
-//                             fontSize: 13
-//                           ),
-//                         ),
-//                         SizedBox(height: 10,),
-//                         Text(
-//                           '54 min',
-//                           style: TextStyle(
-//                             color: Colors.white54,
-//                             fontSize: 13
-//                           ),
-//                         ),
-//                           ],
-//                         ),
-//                       ],
-//                     ),
-//                     SizedBox(height:5),
-//                     Flexible(
-//                       child: Text(
-//                         SeriesData().series[data]['description'],
-//                         style: TextStyle(
-//                           color:Colors.white30,
-//                           fontSize: 11
-//                         ),
-//                       ),
-//                     ),
-//                     Divider(color:Colors.black,height:20)
-//                   ],
-//                 ),
-//               );
-//   }
-// }
