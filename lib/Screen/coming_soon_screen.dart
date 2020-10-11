@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 class ComingSoonScreen extends StatelessWidget {
   static String routeName = '/comingSoonScreen';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
