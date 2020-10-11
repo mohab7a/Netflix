@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class AccountIcon extends StatelessWidget {
   AccountIcon({this.userName,this.imageUrl});

@@ -193,7 +193,48 @@ class _DetailsPageState extends State<DetailsPage>
                               size: 30,
                               color: Colors.white,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              showDialog(context: context,
+                                  builder: (ctx)=>AlertDialog(
+                                    backgroundColor: Colors.transparent,
+                                    contentPadding: EdgeInsets.only(right: 157,),
+                                    titlePadding: EdgeInsets.only(top: 180,left: 10),
+                                    title: Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: [
+                                            Container(
+                                              height: 50,
+                                              width: 50,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                border: Border.all(color: Colors.white, width: 2),
+                                              ),
+                                              child: Icon(Icons.thumb_down),
+                                            ),
+                                            SizedBox(width: 10,),
+                                            Container(
+                                              height: 50,
+                                              width: 50,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                border: Border.all(color: Colors.white, width: 2),
+                                              ),
+                                              child: Icon(Icons.thumb_up),
+                                            ),
+                                          ],
+                                        ),
+                                    content: Container(
+                                      height: 50,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(color: Colors.white, width: 2),
+                                      ),
+                                      child: Icon(Icons.close),
+                                    ),
+                                  )
+                              );
+                            },
                           ),
                         ),
                         Text(
@@ -262,15 +303,34 @@ class _DetailsPageState extends State<DetailsPage>
             SizedBox(
               height: MediaQuery.of(context).size.height,
               child: TabBarView(controller: _tabController, children: [
-                Column(
-                  children: [
-                    episodeBlock("1.Pilot"),
-                    episodeBlock("1.Pilot"),
-                    episodeBlock("1.Pilot"),
-                    episodeBlock("1.Pilot"),
-                    episodeBlock("1.Pilot"),
-             
-                  ],
+                SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      FlatButton(onPressed: (){},
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color:Colors.grey.withAlpha(100),
+                              borderRadius: BorderRadius.circular(5)
+                          ),
+                          width:120,
+                          height:40,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text('Season 1',style: TextStyle(fontSize: 15,color: Colors.white),),
+                              Icon(Icons.arrow_drop_down,color: Colors.white,)
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 10,),
+                      episodeBlock("1.Pilot"),
+                      episodeBlock("1.Pilot"),
+                      episodeBlock("1.Pilot"),
+                      episodeBlock("1.Pilot"),
+                    ],
+                  ),
                 ),
                 Column(
                   children: [

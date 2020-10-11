@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_app/Widget/staring_item.dart';
-import 'package:netflix_app/Widget/recommended_item.dart';
 import 'package:netflix_app/Widget/trend_item.dart';
-import 'package:netflix_app/Widget/movie_view_item.dart';
 import 'package:netflix_app/detailspage.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -35,7 +33,40 @@ class HomeScreen extends StatelessWidget {
                 ButtonBar(
                   children: [
                     FlatButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        showModalBottomSheet(
+                            context: context,
+                            backgroundColor: Colors.transparent,
+                            isScrollControlled: true,
+                            builder: (context) => Container(
+                                  height: MediaQuery.of(context).size.height,
+                                  color: Colors.transparent,
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      Text('BottomSheet'),
+                                      Text('BottomSheet'),
+                                      Text('BottomSheet'),
+                                      Text('BottomSheet'),
+                                      Text('BottomSheet'),
+                                      Text('BottomSheet'),
+                                      Text('BottomSheet'),
+                                      Container(
+                                        height: 50,
+                                        width: 50,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(color: Colors.white, width: 2),
+                                        ),
+                                        child: Icon(Icons.close),
+                                      )
+                                      // FlatButton( onPressed: () => Navigator.pop(context),
+                                      //     child: null)
+                                    ],
+                                  ),
+                                ));
+                      },
                       child: Text(
                         'TV Shows',
                         style: TextStyle(
@@ -69,100 +100,105 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          SliverList(delegate: SliverChildListDelegate(
-            [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height:MediaQuery.of(context).size.height / 1.8,
-                child: Column(
-                  children: [
-                    SizedBox(height: MediaQuery.of(context).size.height / 2.3,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text.rich(
-                          TextSpan(
-                              text:
-                              'Future  •  Sci-fi  •  Apocalypse  •  Netflix Original'),
-                          style: TextStyle(color: Colors.white, fontSize: 13),
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        FlatButton(
-                          textColor: Colors.white70,
-                          onPressed: () {},
-                          child:  Column(
-                            children: <Widget>[
-                              IconButton(
-                                icon: Icon(Icons.done, color: Colors.white),
-                                onPressed: () {
-                                  _showToast(context);
-                                },
-                              ),
-                              Text('My List')
-                            ],
-                          ),
+          SliverList(
+              delegate: SliverChildListDelegate([
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 1.8,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 2.3,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text.rich(
+                        TextSpan(
+                            text:
+                                'Future  •  Sci-fi  •  Apocalypse  •  Netflix Original'),
+                        style: TextStyle(color: Colors.white, fontSize: 13),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      FlatButton(
+                        textColor: Colors.white70,
+                        onPressed: () {},
+                        child: Column(
+                          children: <Widget>[
+                            IconButton(
+                              icon: Icon(Icons.done, color: Colors.white),
+                              onPressed: () {
+                                _showToast(context);
+                              },
+                            ),
+                            Text('My List')
+                          ],
                         ),
-                        SizedBox(
-                          width: 10,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      FlatButton(
+                        color: Colors.white,
+                        onPressed: () {},
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Icon(
+                              Icons.play_arrow,
+                              color: Colors.black,
+                              size: 25,
+                            ),
+                            Text(
+                              'Play',
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 18),
+                            )
+                          ],
                         ),
-                        FlatButton(
-                          color: Colors.white,
-                          onPressed: () {},
-                          child:  Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              Icon(Icons.play_arrow,color: Colors.black,size: 25,),
-                              Text(
-                                'Play',
-                                style: TextStyle(color: Colors.black,fontSize: 18),
-                              )
-                            ],
-                          ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      FlatButton(
+                        textColor: Colors.white70,
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailsPage()),
+                          );
+                        },
+                        child: Column(
+                          children: <Widget>[
+                            Icon(
+                              Icons.info_outline,
+                              color: Colors.white,
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text('Info')
+                          ],
                         ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        FlatButton(
-                          textColor: Colors.white70,
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      DetailsPage()),
-                            );
-                          },
-                          child: Column(
-                            children: <Widget>[
-                              Icon(
-                                Icons.info_outline,
-                                color: Colors.white,
-                              ),
-                              SizedBox(
-                                height: 8,
-                              ),
-                              Text('Info')
-                            ],
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/Intro.jpg'),
-                      fit: BoxFit.fill,
-                      colorFilter: ColorFilter.mode(
-                          Colors.black.withOpacity(0.5), BlendMode.multiply),
-                    )),
+                      )
+                    ],
+                  )
+                ],
               ),
-            ]
-          )),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                image: AssetImage('assets/Intro.jpg'),
+                fit: BoxFit.fill,
+                colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(0.5), BlendMode.multiply),
+              )),
+            ),
+          ])),
           SliverList(
             delegate: SliverChildListDelegate(
               [
@@ -273,7 +309,11 @@ class HomeScreen extends StatelessWidget {
 
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(50))),
-        content: Text('Added to My List',style: TextStyle(color: Colors.white),textAlign: TextAlign.center,),
+        content: Text(
+          'Added to My List',
+          style: TextStyle(color: Colors.white),
+          textAlign: TextAlign.center,
+        ),
         // action: SnackBarAction(
         //     textColor: Colors.white54,
         //     label: 'OK',

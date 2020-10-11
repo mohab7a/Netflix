@@ -57,7 +57,7 @@ Widget episodeBlock(epTitle) {
               ),
               Spacer(
               ),
-              IconButton(icon: Icon(Icons.download_rounded,color: Colors.white,), onPressed: (){})
+              IconButton(icon: Icon(Icons.file_download,color: Colors.white,), onPressed: (){})
             ],
           ),
           SizedBox(height:5),

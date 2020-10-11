@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import '../Account_Icon.dart';
 import 'package:netflix_app/listItem.dart';
 import '../SocialMediaDivider.dart';
 import 'package:netflix_app/SocialMediaButton.dart';
 import 'package:netflix_app/SocialMediaDivider.dart';
+import 'login_screen.dart';
 
 
 class MoreScreen extends StatefulWidget {
@@ -24,31 +24,50 @@ class _MoreScreenState extends State<MoreScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  AccountIcon(
-                    userName: "Khaled",
-                    imageUrl:"assets/Splash.png",
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
+                children: <Widget>[
+                  Container(
+                    color: Colors.white,
+
+                    margin: EdgeInsets.only(right:5.0),
+                    height: 70.0,
+                    width: 70.0,
                   ),
-                  AccountIcon(
-                    userName: "Mohamed",
-                    imageUrl:"assets/Splash.png",
+                  Container(
+                    color: Colors.white,
+
+                    height: 70.0,
+                    width: 70.0,
                   ),
-                  AccountIcon(
-                    userName: "Nour",
-                    imageUrl:
-                    "assets/Splash.png",
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                            color: Colors.white,
+                            width: 2.4
+                        )
+                    ),
+                    margin: EdgeInsets.all(5.0),
+                    height: 90.0,
+                    width: 90.0,
                   ),
-                  AccountIcon(
-                    userName: "Mohab",
-                    imageUrl:
-                    "assets/Splash.png",
+                  Container(
+                    color: Colors.white,
+                    height: 70.0,
+                    width: 70.0,
                   ),
-                  AccountIcon(
-                    userName: "3GWA",
-                    imageUrl:
-                    "assets/Splash.png",
+                  Container(
+                    margin: EdgeInsets.only(left:5.0),
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                            color: Colors.white54
+                        )
+                    ),
+                    height: 70.0,
+                    width: 70.0,
+                    child: new Center(
+
+                      child: Icon(Icons.add,size:40.0,color:Colors.white70),),
                   ),
                 ],
               ),
@@ -111,7 +130,7 @@ class _MoreScreenState extends State<MoreScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Text("https://www.netflix.com/eg/blablablab",overflow: TextOverflow.ellipsis,maxLines:1,softWrap: false,),
+                              SelectableText("https://www.netflix.com/eg/blablablab",maxLines:1,cursorColor: Colors.white38,),
 
                               RaisedButton(onPressed: (){},
                                 child: Text("Copy Link",style: TextStyle(color: Colors.black),),
@@ -171,7 +190,23 @@ class _MoreScreenState extends State<MoreScreen> {
               InkWell(child: ListItem("App Setting"),onTap: (){},),
               ListItem("Account"),
               ListItem("Help"),
-              ListItem("Sign Out"),
+              InkWell(child: ListItem("Sign Out"),onTap: (){
+                showDialog(context: context,
+                  builder: (ctx)=>AlertDialog(
+                    title: Text("Are you sure?"),
+                    content: Text("Do you want to sign out?"),
+                    actions: [
+                      FlatButton(onPressed: (){
+                        Navigator.of(context).pop();
+                      },
+                          child: Text("No")),
+                      FlatButton(onPressed: (){
+                        Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
+                      },
+                          child: Text("Yes")),
+                    ],
+                  )
+              );},),
             ],
           ),
         ),
