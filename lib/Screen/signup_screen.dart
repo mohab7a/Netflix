@@ -45,10 +45,11 @@ class SignUpScreen extends StatelessWidget {
                 style: TextStyle(color: Colors.white24,fontSize: 20),
               ),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [Colors.black45.withOpacity(0.7), Colors.red],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight),
+                color: Colors.blueGrey,
+                // gradient: LinearGradient(
+                //     colors: [Colors.black45.withOpacity(0.7), Colors.red],
+                //     begin: Alignment.topLeft,
+                //     end: Alignment.bottomRight),
                 borderRadius: BorderRadius.circular(15),
               ),
             ),

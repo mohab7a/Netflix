@@ -14,10 +14,11 @@ class MovieViewItem extends StatelessWidget {
         child: Image.asset('assets/logo.png'),
       ),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-            colors: [Colors.black45.withOpacity(0.7), Colors.black],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight),
+        color: Colors.blue
+        // gradient: LinearGradient(
+        //     colors: [Colors.black45.withOpacity(0.7), Colors.black],
+        //     begin: Alignment.topLeft,
+        //     end: Alignment.bottomRight),
       ),
     );
   }

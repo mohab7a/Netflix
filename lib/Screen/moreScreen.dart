@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:netflix_app/Screen/setting_Screen.dart';
 import 'package:netflix_app/listItem.dart';
 import '../SocialMediaDivider.dart';
 import 'package:netflix_app/SocialMediaButton.dart';
@@ -187,7 +188,9 @@ class _MoreScreenState extends State<MoreScreen> {
                 height: 1,
               ),
 
-              InkWell(child: ListItem("App Setting"),onTap: (){},),
+              InkWell(child: ListItem("App Setting"),onTap: (){
+                Navigator.of(context).pushReplacementNamed(SettingScreen.routeName);
+              },),
               ListItem("Account"),
               ListItem("Help"),
               InkWell(child: ListItem("Sign Out"),onTap: (){
