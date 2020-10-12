@@ -11,7 +11,7 @@ void main(){
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData.dark(),
-    home:LoadingScreen(),
+    home: LoadingScreen(),
     title: 'Netflix',
     routes: {
       LoginScreen.routeName:(ctx)=>LoginScreen(),
@@ -21,7 +21,6 @@ void main(){
       ComingSoonScreen.routeName:(ctx)=>ComingSoonScreen(),
       GetStartedScreen.routeName:(ctx)=>GetStartedScreen(),
       NavigationBar.routeName:(ctx)=>NavigationBar(),
-
     },
 
   ));

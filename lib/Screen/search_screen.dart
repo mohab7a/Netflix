@@ -10,6 +10,7 @@ class SearchScreen extends StatelessWidget {
            SliverAppBar(
              expandedHeight: 120.0,
              automaticallyImplyLeading: false,
+             titleSpacing: 0,
              //floating: true,
              pinned: true,
              //snap: true,
@@ -17,6 +18,8 @@ class SearchScreen extends StatelessWidget {
              elevation: 0,
              backgroundColor: Colors.black,
                  flexibleSpace: FlexibleSpaceBar(
+                   collapseMode: CollapseMode.none,
+                   centerTitle: true,
                      background:  Padding(
                                  padding: const EdgeInsets.only(top: 95,left: 8),
                                  child: Text("Popular searches",style: TextStyle(color: Colors.white,fontSize: 25,fontWeight: FontWeight.bold),),
@@ -63,7 +66,7 @@ class SearchScreen extends StatelessWidget {
                                       ),
                                      Text('Amar',style: TextStyle(color: Colors.white),),
                                      Spacer(),
-                                     IconButton(icon: Icon(Icons.play_arrow,color: Colors.white,),),
+                                     IconButton(icon: Icon(Icons.play_arrow,color: Colors.white,),onPressed: (){},),
                                    ],
                                  )
                                ),

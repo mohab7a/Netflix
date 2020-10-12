@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:netflix_app/Screen/home_plus.dart';
 import 'package:netflix_app/Widget/staring_item.dart';
 import 'package:netflix_app/Widget/trend_item.dart';
 import 'package:netflix_app/detailspage.dart';
@@ -9,6 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       extendBodyBehindAppBar: true,
       body: CustomScrollView(
         slivers: [
@@ -34,38 +36,7 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     FlatButton(
                       onPressed: () {
-                        showModalBottomSheet(
-                            context: context,
-                            backgroundColor: Colors.transparent,
-                            isScrollControlled: true,
-                            builder: (context) => Container(
-                                  height: MediaQuery.of(context).size.height,
-                                  color: Colors.transparent,
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: <Widget>[
-                                      Text('BottomSheet'),
-                                      Text('BottomSheet'),
-                                      Text('BottomSheet'),
-                                      Text('BottomSheet'),
-                                      Text('BottomSheet'),
-                                      Text('BottomSheet'),
-                                      Text('BottomSheet'),
-                                      Container(
-                                        height: 50,
-                                        width: 50,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(color: Colors.white, width: 2),
-                                        ),
-                                        child: Icon(Icons.close),
-                                      )
-                                      // FlatButton( onPressed: () => Navigator.pop(context),
-                                      //     child: null)
-                                    ],
-                                  ),
-                                ));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>HomePlusScreen(category: 'TV Shows',)));
                       },
                       child: Text(
                         'TV Shows',
@@ -76,7 +47,9 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     FlatButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>HomePlusScreen(category: 'Movies',)));
+                      },
                       child: Text(
                         'Movies',
                         style: TextStyle(

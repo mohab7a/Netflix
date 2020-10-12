@@ -202,35 +202,44 @@ class _DetailsPageState extends State<DetailsPage>
                                     title: Row(
                                           crossAxisAlignment: CrossAxisAlignment.center,
                                           children: [
-                                            Container(
-                                              height: 50,
-                                              width: 50,
-                                              decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                border: Border.all(color: Colors.white, width: 2),
+                                            InkWell(
+                                              onTap: (){Navigator.of(context).pop();},
+                                              child: Container(
+                                                height: 50,
+                                                width: 50,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(color: Colors.white, width: 2),
+                                                ),
+                                                child: Icon(Icons.thumb_down),
                                               ),
-                                              child: Icon(Icons.thumb_down),
                                             ),
                                             SizedBox(width: 10,),
-                                            Container(
-                                              height: 50,
-                                              width: 50,
-                                              decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                border: Border.all(color: Colors.white, width: 2),
+                                            InkWell(
+                                              onTap: (){Navigator.of(context).pop();},
+                                              child: Container(
+                                                height: 50,
+                                                width: 50,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(color: Colors.white, width: 2),
+                                                ),
+                                                child: Icon(Icons.thumb_up),
                                               ),
-                                              child: Icon(Icons.thumb_up),
                                             ),
                                           ],
                                         ),
-                                    content: Container(
-                                      height: 50,
-                                      width: 50,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(color: Colors.white, width: 2),
+                                    content: InkWell(
+                                      onTap: (){Navigator.of(context).pop();},
+                                      child: Container(
+                                        height: 50,
+                                        width: 50,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(color: Colors.white, width: 2),
+                                        ),
+                                        child: Icon(Icons.close),
                                       ),
-                                      child: Icon(Icons.close),
                                     ),
                                   )
                               );
@@ -307,7 +316,32 @@ class _DetailsPageState extends State<DetailsPage>
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      FlatButton(onPressed: (){},
+                      FlatButton(onPressed: (){
+                        showModalBottomSheet(
+                            context: context,
+                            backgroundColor: Colors.transparent,
+                            isScrollControlled: true,
+                            builder: (context) => Container(
+                              height: MediaQuery.of(context).size.height,
+                              color: Colors.transparent,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  SizedBox(height: 240,),
+                                  Text('Season 1',style:TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+                                  SizedBox(height: 20,),
+                                  Text('Season 2',style:TextStyle(fontSize: 20),),
+                                  SizedBox(height: 20,),
+                                  Text('Season 3',style:TextStyle(fontSize: 20),),
+                                  SizedBox(height: 20,),
+                                  Text('Season 4',style:TextStyle(fontSize: 20),),
+                                  SizedBox(height: 200,),
+                                  FloatingActionButton( onPressed: () => Navigator.pop(context),
+                                    child: Icon(Icons.close,color: Colors.black,size: 30,),backgroundColor: Colors.white,)
+                                ],
+                              ),
+                            ));
+                      },
                         child: Container(
                           decoration: BoxDecoration(
                               color:Colors.grey.withAlpha(100),
