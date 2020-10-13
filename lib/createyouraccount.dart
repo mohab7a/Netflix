@@ -80,8 +80,8 @@ class CreateAccount extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 10),
               child: FlatButton(
-                minWidth: double.infinity,
-                height: 50,
+                // minWidth: double.infinity,
+                // height: 50,
                 onPressed: (){}, child: Center(child: Text("CONTINUE",style: TextStyle(fontSize: 20),)),color: Colors.red,),
             )
           ],

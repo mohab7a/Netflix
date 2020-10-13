@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_app/Widget/share_button.dart';
 import 'dart:ui';
+import 'SocialMediaButton.dart';
 import 'Widget/episode_block.dart';
 import 'big_button.dart';
 import 'film_card.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 
 class DetailsPage extends StatefulWidget {
@@ -268,7 +271,37 @@ class _DetailsPageState extends State<DetailsPage>
                               size: 30,
                               color: Colors.white,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              showModalBottomSheet(
+                                  context: context,
+                                  backgroundColor: Colors.black12.withOpacity(.6),
+                                  isScrollControlled: true,
+                                  builder: (context) => Container(
+                                    height: MediaQuery.of(context).size.height,
+                                  //  color: Colors.transparent,
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: <Widget>[
+                                        SizedBox(height: 20,),
+                                        Spacer(),
+                                        Text("Share to...",style: TextStyle(fontSize: 20),),
+                                        ShareIcon(userName: "Facebook",buttonData: Buttons.Facebook,),
+                                        ShareIcon(userName: "Message",buttonData: Buttons.Email,),
+                                        ShareIcon(userName: "Reddit",buttonData: Buttons.Reddit,),
+                                        ShareIcon(userName: "Yahoo",buttonData: Buttons.Yahoo,),
+                                        ShareIcon(userName: "Google",buttonData: Buttons.Microsoft,),
+                                        ShareIcon(userName: "Twitter",buttonData: Buttons.Twitter,),
+                                        Text("More Options",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
+                                        Spacer(),
+                                        Padding(
+                                          padding: const EdgeInsets.only(bottom:10),
+                                          child: FloatingActionButton( onPressed: () => Navigator.pop(context),
+                                            child: Icon(Icons.close,color: Colors.black,size: 30,),backgroundColor: Colors.white,),
+                                        )
+                                      ],
+                                    ),
+                                  ));
+                            },
                           ),
                         ),
                         Text(

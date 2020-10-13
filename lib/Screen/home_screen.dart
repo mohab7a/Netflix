@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_app/Screen/home_plus.dart';
+import 'package:netflix_app/Widget/category_title.dart';
+import 'package:netflix_app/Widget/recommended_item.dart';
 import 'package:netflix_app/Widget/staring_item.dart';
 import 'package:netflix_app/Widget/trend_item.dart';
 import 'package:netflix_app/detailspage.dart';
@@ -175,22 +177,164 @@ class HomeScreen extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(
               [
+                CategoryTitle('Previews'),
                 StaringItem(),
               ],
             ),
           ),
           SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                // To convert this infinite list to a list with three items,
-                // uncomment the following line:
-                // if (index > 3) return null;
-                return TrendItem();
-              },
-              // Or, uncomment the following line:
-              // childCount: 3,
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('New Releases'),
+                TrendItem(),
+              ],
             ),
           ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Trending Now'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('My List'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Egyptian Comedies'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('TV Shows'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Continue Watching for Mohab'),
+                RecommendedItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Top 10 in Egypt Today'),
+                RecommendedItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Egyptian TV Shows'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Action TV'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Emotional Movies'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Hollywood Movies'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('TV Drams'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('US TV Dramas'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('US TV Shows'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Middle Eastern TV Shows'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Ensemble TV Shows'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Because You Watched The holiday Calender'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Period Pieces'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Black Stories'),
+                TrendItem(),
+              ],
+            ),
+          ),
+
         ],
 
         // appBar: AppBar(

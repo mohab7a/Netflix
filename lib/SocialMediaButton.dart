@@ -18,7 +18,7 @@ class SocialIcon extends StatelessWidget {
 
 
       ),
-      Text(userName,style: TextStyle(fontWeight: FontWeight.bold),)
+      Text(userName,style: TextStyle(fontWeight: FontWeight.bold,),)
       ],
       ),
     );

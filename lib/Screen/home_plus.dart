@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_app/Screen/home_screen.dart';
+import 'package:netflix_app/Widget/category_title.dart';
+import 'package:netflix_app/Widget/originals_item.dart';
+import 'package:netflix_app/Widget/recommended_item.dart';
 import 'package:netflix_app/Widget/staring_item.dart';
 import 'package:netflix_app/Widget/trend_item.dart';
 import 'package:netflix_app/detailspage.dart';
@@ -284,20 +287,170 @@ class HomePlusScreen extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(
               [
+                CategoryTitle('Previews'),
                 StaringItem(),
               ],
             ),
           ),
           SliverList(
-            delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) {
-                // To convert this infinite list to a list with three items,
-                // uncomment the following line:
-                // if (index > 3) return null;
-                return TrendItem();
-              },
-              // Or, uncomment the following line:
-              // childCount: 3,
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Comedies'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Trending Now'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('My List'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Netflix Originals'),
+                OriginalsItem(),
+              ],
+            ),
+
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Emotional Movies'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Continue Watching for Mohab'),
+                RecommendedItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Egyptian Movies'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Hollywood Movies'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Dramas'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Action & Adventure'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Top 10 Movies in Egypt Today'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Romantic Movies'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Romantic Movies Starring Woman'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Thrillers & Horror'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Movies Directed By Woman'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('New Releases'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Top Picks for Mohab'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Middle Eastern Comedies'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Women Behind the Camera'),
+                TrendItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                CategoryTitle('Crime Movies'),
+                TrendItem(),
+              ],
             ),
           ),
         ],

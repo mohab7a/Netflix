@@ -17,24 +17,6 @@ class _NavigationBarState extends State<NavigationBar> {
   Widget build(BuildContext context) {
     List<Widget>screens=[];
     screens=<Widget>[HomeScreen(),SearchScreen(),ComingSoonScreen(),DownloadScreen(),MoreScreen()];
-    // Widget child;
-    // switch (_index) {
-    //   case 0:
-    //     child = HomeScreen();
-    //     break;
-    //   case 1:
-    //     child = SearchScreen();
-    //     break;
-    //   case 2:
-    //     child = SearchScreen();
-    //     break;
-    //   case 3:
-    //     child = SearchScreen();
-    //     break;
-    //   case 4:
-    //     child = ComingSoonScreen();
-    //     break;
-    // }
 
     return Scaffold(
       body: //SizedBox.expand(child: child),
