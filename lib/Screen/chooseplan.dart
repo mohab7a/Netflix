@@ -1,11 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:netflix_app/Screen/login_screen.dart';
+import 'package:netflix_app/Screen/web_sign.dart';
 
-import 'dealcard.dart';
-import 'dealoption.dart';
+import '../dealcard.dart';
+import '../dealoption.dart';
+import 'help_screen.dart';
 
 class ChoosePlan extends StatefulWidget {
+  static String routeName= "ChoosePlan";
   @override
   _ChoosePlanState createState() => _ChoosePlanState();
 }
@@ -19,6 +23,7 @@ class _ChoosePlanState extends State<ChoosePlan> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.white,
         title: Image.asset(
@@ -28,13 +33,20 @@ class _ChoosePlanState extends State<ChoosePlan> {
         ),
         actions: [
           Center(
-              child: Text(
+              child: InkWell(
+                onTap: (){
+                  Navigator.of(context).pushNamed(HelpScreen.routeName);
+                },
+                child: Text(
             "HELP",
             style: kActionAppBarStyle,
-          )),
+          ),
+              )),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Center(child: Text("SIGN IN", style: kActionAppBarStyle)),
+            child: Center(child: InkWell(
+                onTap: (){Navigator.of(context).pushNamed(LoginScreen.routeName);},
+                child: Text("SIGN IN", style: kActionAppBarStyle))),
           )
         ],
       ),
@@ -144,7 +156,9 @@ class _ChoosePlanState extends State<ChoosePlan> {
                   child: FlatButton(
                     minWidth: double.infinity,
                     height: 50,
-                    onPressed: (){}, child: Center(child: Text("CONTINUE",style: TextStyle(fontSize: 20),)),color: Colors.red,),
+                    onPressed: (){
+                      Navigator.of(context).pushNamed(WebSign.routeName);
+                    }, child: Center(child: Text("CONTINUE",style: TextStyle(fontSize: 20),)),color: Colors.red,),
                 )
               ],
             ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_app/Screen/chooseyourplan.dart';
+import 'package:netflix_app/Screen/help_screen.dart';
 import 'package:netflix_app/Screen/login_screen.dart';
 import 'package:netflix_app/pagemodel.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -17,14 +19,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
       throw 'Could not launch $url';
     }
   }
-  _NURL() async {
-    const url = 'https://www.netflix.com/signup';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+
   final _pageIndexNotifier = ValueNotifier<int>(0);
   List<PageModel> pages = [
     PageModel(
@@ -110,7 +105,9 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                   ),
                 ),
                 FlatButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.of(context).pushNamed(HelpScreen.routeName);
+                  },
                   child: Text(
                     'HELP',
                     style: TextStyle(
@@ -144,7 +141,9 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 height: 55,
                 child: RaisedButton(
                   color: Colors.red[900],
-                  onPressed:_NURL,
+                  onPressed:(){
+                    Navigator.of(context).pushNamed(ChooseYourPlan.routeName);
+                  },
                   child: Text(
                     'GET STARTED',
                     style: TextStyle(

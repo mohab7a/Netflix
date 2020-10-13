@@ -1,15 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:netflix_app/Screen/chooseplan.dart';
+import 'package:netflix_app/Screen/login_screen.dart';
 
-import 'dealoption.dart';
+import 'help_screen.dart';
 class ChooseYourPlan extends StatelessWidget {
   static const kActionAppBarStyle =
   TextStyle(color: Colors.black, fontWeight: FontWeight.bold);
+  static String routeName= "ChooseYourPlan";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.white,
         title: Image.asset(
@@ -20,7 +24,9 @@ class ChooseYourPlan extends StatelessWidget {
     actions: [
     Center(
     child: InkWell(
-      onTap: (){},
+      onTap: (){
+        Navigator.of(context).pushNamed(HelpScreen.routeName);
+      },
       child: Text(
       "HELP",
       style: kActionAppBarStyle,
@@ -29,7 +35,9 @@ class ChooseYourPlan extends StatelessWidget {
     Padding(
     padding: const EdgeInsets.symmetric(horizontal: 10),
     child: Center(child: InkWell(
-        onTap: (){},
+        onTap: (){
+          Navigator.of(context).pushNamed(LoginScreen.routeName);
+        },
         child: Text("SIGN IN", style: kActionAppBarStyle))),
     )
     ],
@@ -151,7 +159,9 @@ class ChooseYourPlan extends StatelessWidget {
               child: FlatButton(
                 minWidth: double.infinity,
                 height: 50,
-                onPressed: (){}, child: Center(child: Text("SEE THE PLANS",style: TextStyle(fontSize: 20),)),color: Colors.red,),
+                onPressed: (){
+                  Navigator.of(context).pushNamed(ChoosePlan.routeName);
+                }, child: Center(child: Text("SEE THE PLANS",style: TextStyle(fontSize: 20),)),color: Colors.red,),
             )
 
 

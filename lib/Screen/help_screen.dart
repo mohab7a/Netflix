@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 class HelpScreen extends StatelessWidget {
+  static String routeName= "HelpScreen";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+
+        leading: IconButton(
+          icon:Icon(  Icons.arrow_back,color: Colors.black,),
+        onPressed: (){
+            Navigator.pop(context);
+      },
+   
+        ),
         elevation: 0,
         backgroundColor:Colors.white,
-        leading: IconButton(
-          icon:Icon(Icons.arrow_back,color:Colors.black,size: 30,),
-          onPressed: (){},
-        ),
+
         title: Image.asset('assets/logo.png',width:125 ,),
         centerTitle: true,
       ),
