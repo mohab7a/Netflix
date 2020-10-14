@@ -16,7 +16,7 @@ class ChoosePlan extends StatefulWidget {
 
 class _ChoosePlanState extends State<ChoosePlan> {
   String radioItem = '';
-  static const kActionAppBarStyle =
+  static const kActionAppBarStyle = 
       TextStyle(color: Colors.black, fontWeight: FontWeight.bold);
   @override
   Widget build(BuildContext context) {
@@ -84,7 +84,7 @@ class _ChoosePlanState extends State<ChoosePlan> {
                   child: Text(
                     "Choose the plan that's right \nfor you.",
                     style: TextStyle(
-                        fontSize: 22,
+                        fontSize:22,
                         fontWeight: FontWeight.bold,
                         color: Colors.black),
                   ),
