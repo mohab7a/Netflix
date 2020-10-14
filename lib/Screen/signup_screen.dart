@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_app/Screen/manage_profile.dart';
 import 'package:netflix_app/Screen/navigation_bar.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -15,7 +16,7 @@ class SignUpScreen extends StatelessWidget {
                 Icons.mode_edit,
                 color: Colors.grey,
               ),
-              onPressed: null)
+              onPressed: (){Navigator.of(context).pushNamed(ManageProfile.routeName);})
         ],
         centerTitle: true,
         title: Image.asset(
@@ -29,29 +30,23 @@ class SignUpScreen extends StatelessWidget {
       body: GridView.builder(
           gridDelegate:
           SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 200,
-              childAspectRatio: 3 / 2,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 20),
-          padding: const EdgeInsets.all(25),
+              maxCrossAxisExtent: 90,
+              childAspectRatio: 1,
+              crossAxisSpacing: 90,
+              mainAxisSpacing: 60),
+          padding: const EdgeInsets.all(60),
           itemCount: 5,
           itemBuilder: (ctx, i) => InkWell(
             onTap: (){
               Navigator.of(context).pushNamed(NavigationBar.routeName);
             },
             child: Container(
-              padding: const EdgeInsets.all(15),
-              child: Text("User",
-                style: TextStyle(color: Colors.white24,fontSize: 20),
-              ),
               decoration: BoxDecoration(
-                color: Colors.blueGrey,
-                // gradient: LinearGradient(
-                //     colors: [Colors.black45.withOpacity(0.7), Colors.red],
-                //     begin: Alignment.topLeft,
-                //     end: Alignment.bottomRight),
-                borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(5),
+                  image: DecorationImage(image: AssetImage('assets/p3.png'),fit: BoxFit.cover)
               ),
+              // height: 70.0,
+              // width: 70.0,
             ),
           )),
     );

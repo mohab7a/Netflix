@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_app/Screen/home_plus.dart';
+import 'package:netflix_app/Screen/video_play.dart';
 import 'package:netflix_app/Widget/category_title.dart';
 import 'package:netflix_app/Widget/recommended_item.dart';
 import 'package:netflix_app/Widget/staring_item.dart';
+import 'package:netflix_app/Widget/top_ten_item.dart';
 import 'package:netflix_app/Widget/trend_item.dart';
 import 'package:netflix_app/detailspage.dart';
 
@@ -38,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     FlatButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>HomePlusScreen(category: 'TV Shows',)));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>HomePlusScreen(category: 'TV Shows')));
                       },
                       child: Text(
                         'TV Shows',
@@ -119,7 +120,9 @@ class HomeScreen extends StatelessWidget {
                       ),
                       FlatButton(
                         color: Colors.white,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(builder:(ctx)=>VideoApp()));
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
@@ -234,7 +237,7 @@ class HomeScreen extends StatelessWidget {
             delegate: SliverChildListDelegate(
               [
                 CategoryTitle('Top 10 in Egypt Today'),
-                RecommendedItem(),
+                TopTenItem(),
               ],
             ),
           ),
@@ -431,10 +434,6 @@ class HomeScreen extends StatelessWidget {
           style: TextStyle(color: Colors.white),
           textAlign: TextAlign.center,
         ),
-        // action: SnackBarAction(
-        //     textColor: Colors.white54,
-        //     label: 'OK',
-        //     onPressed: scaffold.hideCurrentSnackBar),
       ),
     );
   }

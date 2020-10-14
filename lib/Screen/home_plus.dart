@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:netflix_app/Screen/home_screen.dart';
 import 'package:netflix_app/Widget/category_title.dart';
 import 'package:netflix_app/Widget/originals_item.dart';
 import 'package:netflix_app/Widget/recommended_item.dart';
 import 'package:netflix_app/Widget/staring_item.dart';
+import 'package:netflix_app/Widget/top_ten_item.dart';
 import 'package:netflix_app/Widget/trend_item.dart';
 import 'package:netflix_app/detailspage.dart';
 
@@ -217,7 +217,6 @@ class HomePlusScreen extends StatelessWidget {
                                 IconButton(
                                   icon: Icon(Icons.done, color: Colors.white),
                                   onPressed: () {
-                                    _showToast(context);
                                   },
                                 ),
                                 Text('My List')
@@ -377,7 +376,7 @@ class HomePlusScreen extends StatelessWidget {
             delegate: SliverChildListDelegate(
               [
                 CategoryTitle('Top 10 Movies in Egypt Today'),
-                TrendItem(),
+                TopTenItem(),
               ],
             ),
           ),
@@ -530,29 +529,6 @@ class HomePlusScreen extends StatelessWidget {
         //     ),
         //   ),
         // ),
-      ),
-    );
-  }
-
-  void _showToast(BuildContext context) {
-    final scaffold = Scaffold.of(context);
-    scaffold.hideCurrentSnackBar();
-    scaffold.showSnackBar(
-      SnackBar(
-        backgroundColor: Colors.black,
-        behavior: SnackBarBehavior.floating,
-
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(50))),
-        content: Text(
-          'Added to My List',
-          style: TextStyle(color: Colors.white),
-          textAlign: TextAlign.center,
-        ),
-        // action: SnackBarAction(
-        //     textColor: Colors.white54,
-        //     label: 'OK',
-        //     onPressed: scaffold.hideCurrentSnackBar),
       ),
     );
   }

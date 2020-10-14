@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_app/Widget/share_button.dart';
 import 'dart:ui';
-import 'SocialMediaButton.dart';
 import 'Widget/episode_block.dart';
 import 'big_button.dart';
 import 'film_card.dart';
@@ -175,7 +174,8 @@ class _DetailsPageState extends State<DetailsPage>
                               size: 40,
                               color: Colors.white,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                            },
                           ),
                         ),
                         Text(

@@ -4,7 +4,9 @@ import 'package:netflix_app/Screen/coming_soon_screen.dart';
 import 'package:netflix_app/Screen/getstartedscreen.dart';
 import 'package:netflix_app/Screen/loading_screen.dart';
 import 'package:netflix_app/Screen/login_screen.dart';
+import 'package:netflix_app/Screen/manage_profile.dart';
 import 'package:netflix_app/Screen/navigation_bar.dart';
+import 'package:netflix_app/Screen/notifications_screen.dart';
 import 'package:netflix_app/Screen/search_screen.dart';
 import 'package:netflix_app/Screen/set_up_payment.dart';
 import 'package:netflix_app/Screen/setting_Screen.dart';
@@ -41,7 +43,8 @@ void main(){
       SetUpCredit.routeName:(ctx)=>SetUpCredit(),
 
 
-
+      ManageProfile.routeName:(ctx)=>ManageProfile(),
+      NotificationsScreen.routeName:(ctx)=>NotificationsScreen(),
     },
 
   ));

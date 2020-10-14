@@ -15,14 +15,17 @@ class StaringItem extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: Colors.red, width: 3),
+                  border: Border.all(color: Colors.lightGreenAccent, width: 1),
                 ),
                 child: CircleAvatar(
                   backgroundImage: AssetImage('assets/Vampire.jpg',),
                   maxRadius: 50,
                 ),
               ),
-              Positioned(child: Text("Nour Omar",style: TextStyle(fontSize: 20,color: Colors.white),),bottom: 2,left: 8,)
+              Positioned(child:
+              Image.asset('assets/logo.png',width: 100,height: 22,),
+              //Text("Nour Omar",style: TextStyle(fontSize: 20,color: Colors.white),),
+                bottom: 3,left: 5,)
             ],
           ),
           SizedBox(width: 10,)
