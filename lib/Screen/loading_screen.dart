@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:netflix_app/Screen/getstartedscreen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-
 class LoadingScreen extends StatefulWidget {
   @override
   _LoadingScreenState createState() => _LoadingScreenState();
@@ -17,11 +16,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
     });
     super.initState();
   }
+
   final spinkit = SpinKitRing(
-      color: Colors.red,
-      size: 50.0,
-      lineWidth: 4,
-     );
+    color: Colors.red,
+    size: 50.0,
+    lineWidth: 4,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
               ),
             ),
             Positioned(
-               child: spinkit,
+              child: spinkit,
               top: MediaQuery.of(context).size.height / 1.6,
               left: MediaQuery.of(context).size.width / 2.2,
               right: MediaQuery.of(context).size.width / 2.2,

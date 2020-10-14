@@ -1,11 +1,14 @@
-
 import 'package:flutter/material.dart';
+import 'package:netflix_app/Screen/help_screen.dart';
 import 'package:netflix_app/Screen/set_up_credit.dart';
+
+import 'login_screen.dart';
+
 class SetUpPayment extends StatelessWidget {
-  static String routeName= "SetUpPayment";
+  static String routeName = "SetUpPayment";
 
   static const kActionAppBarStyle =
-  TextStyle(color: Colors.black, fontWeight: FontWeight.bold);
+      TextStyle(color: Colors.black, fontWeight: FontWeight.bold);
 
   @override
   Widget build(BuildContext context) {
@@ -22,28 +25,64 @@ class SetUpPayment extends StatelessWidget {
         ),
         actions: [
           Center(
-              child: Text(
-                "HELP",
-                style: kActionAppBarStyle,
-              )),
+              child: InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+                return HelpScreen();
+              }));
+            },
+            child: Text(
+              "HELP",
+              style: kActionAppBarStyle,
+            ),
+          )),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Center(child: Text("SIGN OUT", style: kActionAppBarStyle)),
+            child: Center(
+                child: InkWell(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (ctx) => AlertDialog(
+                                title: Text(
+                                  "Are you sure?",
+                                  textAlign: TextAlign.center,
+                                ),
+                                actions: [
+                                  FlatButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: Text("No")),
+                                  FlatButton(
+                                      onPressed: () {
+                                        Navigator.push(context,
+                                            MaterialPageRoute(builder: (ctx) {
+                                          return LoginScreen();
+                                        }));
+                                      },
+                                      child: Text("Sign Out")),
+                                ],
+                              ));
+                    },
+                    child: Text("SIGN OUT", style: kActionAppBarStyle))),
           ),
         ],
-
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height/10,horizontal: 17),
+        padding: EdgeInsets.symmetric(
+            vertical: MediaQuery.of(context).size.height / 10, horizontal: 17),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.only(bottom: 10),
-              child: Image.asset("assets/Lock.png",width: MediaQuery.of(context).size.width/8,),
+              child: Image.asset(
+                "assets/Lock.png",
+                width: MediaQuery.of(context).size.width / 8,
+              ),
             ),
-   
             Padding(
               padding: const EdgeInsets.only(bottom: 10),
               child: RichText(
@@ -51,27 +90,25 @@ class SetUpPayment extends StatelessWidget {
                       text: "STEP",
                       style: TextStyle(color: Colors.grey.shade700),
                       children: [
-                        TextSpan(
-                            text: " 3 ",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold)),
-                        TextSpan(
-                            text: "OF",
-                            style: TextStyle(color: Colors.grey.shade700)),
-                        TextSpan(
-                            text: " 3",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold))
-                      ])),
+                    TextSpan(
+                        text: " 3 ",
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold)),
+                    TextSpan(
+                        text: "OF",
+                        style: TextStyle(color: Colors.grey.shade700)),
+                    TextSpan(
+                        text: " 3",
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold))
+                  ])),
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 10),
               child: Text(
                 "Set up your payment.",
                 style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width/18,
+                    fontSize: MediaQuery.of(context).size.width / 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.black),
               ),
@@ -81,7 +118,7 @@ class SetUpPayment extends StatelessWidget {
               child: Text(
                 "Your membership starts as soon as\nyou set up payment.",
                 style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width/20,
+                    fontSize: MediaQuery.of(context).size.width / 20,
                     color: Colors.grey),
               ),
             ),
@@ -90,50 +127,46 @@ class SetUpPayment extends StatelessWidget {
               child: Text(
                 "No commitments. Cancel online at\nanytime",
                 style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width/20,
+                    fontSize: MediaQuery.of(context).size.width / 20,
                     fontWeight: FontWeight.w500,
                     color: Colors.black),
               ),
             ),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 Navigator.of(context).pushNamed(SetUpCredit.routeName);
               },
               child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 15),
+                padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Row(
                   children: [
                     Text(
-                      "Credit or Debit Card",style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.width/20,
-                        color: Colors.grey.shade700),
+                      "Credit or Debit Card",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 20,
+                          color: Colors.grey.shade700),
                     ),
                     Spacer(),
-                  Transform.rotate(
-                    angle: 3.14 ,
-                      //transform: new Matrix4.rotationZ(0.174533),
-                      child: Icon(Icons.arrow_back_ios,color: Colors.grey.shade400,))
+                    Transform.rotate(
+                        angle: 3.14,
+                        //transform: new Matrix4.rotationZ(0.174533),
+                        child: Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.grey.shade400,
+                        ))
                   ],
                 ),
                 width: MediaQuery.of(context).size.width,
                 height: 60,
-           decoration: BoxDecoration(
-               color: Colors.white,
-               borderRadius: BorderRadius.circular(5),
-               border: Border.all(
-                 width: 2,
-                 color: Colors.grey
-               )
-           ),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(5),
+                    border: Border.all(width: 2, color: Colors.grey)),
               ),
             ),
-
-
           ],
         ),
       ),
     );
   }
 }
-
-

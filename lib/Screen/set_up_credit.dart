@@ -1,16 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:flutter/material.dart';
+import 'package:netflix_app/Screen/help_screen.dart';
+import 'package:netflix_app/Screen/home_screen.dart';
+import 'package:netflix_app/Screen/login_screen.dart';
+import 'package:netflix_app/Widget/credit_text_field.dart';
 
 class SetUpCredit extends StatefulWidget {
-  static String routeName= "SetUpCredit";
+  static String routeName = "SetUpCredit";
   @override
   _SetUpCreditState createState() => _SetUpCreditState();
 }
 
 class _SetUpCreditState extends State<SetUpCredit> {
-  bool _checkValue=false;
+  bool _checkValue = false;
   static const kActionAppBarStyle =
       TextStyle(color: Colors.black, fontWeight: FontWeight.bold);
   final _form = GlobalKey<FormState>();
@@ -29,13 +32,47 @@ class _SetUpCreditState extends State<SetUpCredit> {
         ),
         actions: [
           Center(
-              child: Text(
-            "HELP",
-            style: kActionAppBarStyle,
+              child: InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+                return HelpScreen();
+              }));
+            },
+            child: Text(
+              "HELP",
+              style: kActionAppBarStyle,
+            ),
           )),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Center(child: Text("SIGN OUT", style: kActionAppBarStyle)),
+            child: Center(
+                child: InkWell(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (ctx) => AlertDialog(
+                                title: Text(
+                                  "Are you sure?",
+                                  textAlign: TextAlign.center,
+                                ),
+                                actions: [
+                                  FlatButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: Text("No")),
+                                  FlatButton(
+                                      onPressed: () {
+                                        Navigator.push(context,
+                                            MaterialPageRoute(builder: (ctx) {
+                                          return LoginScreen();
+                                        }));
+                                      },
+                                      child: Text("Sign Out")),
+                                ],
+                              ));
+                    },
+                    child: Text("SIGN OUT", style: kActionAppBarStyle))),
           ),
         ],
       ),
@@ -185,29 +222,29 @@ class _SetUpCreditState extends State<SetUpCredit> {
                   Padding(
                     padding: const EdgeInsets.only(right: 10),
                     child: Container(
-
                       width: 20,
                       height: 20,
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 2,
-                        )
-                      ),
+                          color: Colors.white,
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 2,
+                          )),
                       child: Checkbox(
-
                           activeColor: Colors.blue,
-                          value: _checkValue, onChanged: (value){
-                        setState(() {
-                          _checkValue=value;
-                        });
-                      }),
+                          value: _checkValue,
+                          onChanged: (value) {
+                            setState(() {
+                              _checkValue = value;
+                            });
+                          }),
                     ),
                   ),
                   Text(
                     "I agree",
-                    style: TextStyle(color: Colors.grey.shade700, fontSize: MediaQuery.of(context).size.width/25,
+                    style: TextStyle(
+                      color: Colors.grey.shade700,
+                      fontSize: MediaQuery.of(context).size.width / 25,
                     ),
                   )
                 ],
@@ -218,42 +255,20 @@ class _SetUpCreditState extends State<SetUpCredit> {
               child: FlatButton(
                 minWidth: double.infinity,
                 height: 50,
-                onPressed: (){}, child: Center(child: Text("START MEMBERSHIP",style: TextStyle(fontSize: 20,color: Colors.white),)),color: Colors.red,),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+                    return HomeScreen();
+                  }));
+                },
+                child: Center(
+                    child: Text(
+                  "START MEMBERSHIP",
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                )),
+                color: Colors.red,
+              ),
             )
           ],
-        ),
-      ),
-
-    );
-  }
-}
-
-class CreditTextField extends StatelessWidget {
-  CreditTextField({this.icon, this.textFielTitle});
-  final IconData icon;
-  final String textFielTitle;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: TextFormField(
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(16),
-          filled: true,
-          fillColor: Colors.white,
-          hintText: textFielTitle,
-          hintStyle: TextStyle(
-            color: Colors.grey,
-            fontSize: 20,
-          ),
-          alignLabelWithHint: true,
-          suffixIcon: Icon(icon),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.blueAccent, width: 1),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey, width: 1),
-          ),
         ),
       ),
     );

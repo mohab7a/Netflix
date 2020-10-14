@@ -6,7 +6,7 @@ import 'package:netflix_app/Widget/recommended_item.dart';
 import 'package:netflix_app/Widget/staring_item.dart';
 import 'package:netflix_app/Widget/top_ten_item.dart';
 import 'package:netflix_app/Widget/trend_item.dart';
-import 'package:netflix_app/detailspage.dart';
+import 'file:///C:/Users/HELAL/AndroidStudioProjects/Netflix/lib/Widget/detailspage.dart';
 
 class HomePlusScreen extends StatelessWidget {
   final String category;

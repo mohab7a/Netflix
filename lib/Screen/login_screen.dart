@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_app/Screen/signup_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 class LoginScreen extends StatefulWidget {
   static String routeName = '/LoginScreen';
   @override
@@ -16,6 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
       throw 'Could not launch $url';
     }
   }
+
   final _emailFocusNode = FocusScopeNode();
 
   final _form = GlobalKey<FormState>();
@@ -25,14 +27,15 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: Colors.black54,
       appBar: AppBar(
-        leading: IconButton(icon: Icon(Icons.arrow_back),
-        onPressed: (){
-          Navigator.of(context).pop();
-        },
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
         title: Image.asset(
           'assets/logo.png',
-          width: MediaQuery.of(context).size.width/4,
+          width: MediaQuery.of(context).size.width / 4,
           height: MediaQuery.of(context).size.height,
         ),
         elevation: 0,
@@ -57,8 +60,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           contentPadding: EdgeInsets.all(22),
                           filled: true,
                           fillColor: Colors.grey,
-                           hintText: 'Email or phone number',
-                          hintStyle: TextStyle(color: Colors.white54, fontSize: 20,),
+                          hintText: 'Email or phone number',
+                          hintStyle: TextStyle(
+                            color: Colors.white54,
+                            fontSize: 20,
+                          ),
                           alignLabelWithHint: true,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(
@@ -83,7 +89,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           filled: true,
                           fillColor: Colors.grey,
                           hintText: 'Password',
-                          hintStyle: TextStyle(color: Colors.white54, fontSize: 20),
+                          hintStyle:
+                              TextStyle(color: Colors.white54, fontSize: 20),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(10.0),
@@ -116,15 +123,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Center(
                         child: Text(
                           "Sign in",
-                          style: TextStyle(color: Colors.white,fontSize: 25),
+                          style: TextStyle(color: Colors.white, fontSize: 25),
                         ),
                       ))),
               FlatButton(
-                padding: EdgeInsets.all(25),
-                  onPressed:_privacyURL,
+                  padding: EdgeInsets.all(25),
+                  onPressed: _privacyURL,
                   child: Text(
                     "Need Help?",
-                    style: TextStyle(color: Colors.grey,fontSize: 18),
+                    style: TextStyle(color: Colors.grey, fontSize: 18),
                   )),
               FlatButton(
                   onPressed: () {
@@ -132,18 +139,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                   child: Text(
                     "New to Netflix? Sign up now.",
-                    style: TextStyle(color: Colors.grey[400],fontSize: 18,fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        color: Colors.grey[400],
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
                   )),
               Padding(
-                padding: const EdgeInsets.only(top:30),
+                padding: const EdgeInsets.only(top: 30),
                 child: Text(
                   "Sign in is protected by Google reCAPTCHA to in ensure ",
-                  style: TextStyle(color: Colors.grey,fontSize: 12),
+                  style: TextStyle(color: Colors.grey, fontSize: 12),
                 ),
               ),
               Text(
                 " you're not a bot.",
-                style: TextStyle(color: Colors.grey,fontSize: 12),
+                style: TextStyle(color: Colors.grey, fontSize: 12),
               ),
             ],
           ),

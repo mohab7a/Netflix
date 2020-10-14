@@ -16,7 +16,9 @@ class SignUpScreen extends StatelessWidget {
                 Icons.mode_edit,
                 color: Colors.grey,
               ),
-              onPressed: (){Navigator.of(context).pushNamed(ManageProfile.routeName);})
+              onPressed: () {
+                Navigator.of(context).pushNamed(ManageProfile.routeName);
+              })
         ],
         centerTitle: true,
         title: Image.asset(
@@ -28,8 +30,7 @@ class SignUpScreen extends StatelessWidget {
         backgroundColor: Colors.black54,
       ),
       body: GridView.builder(
-          gridDelegate:
-          SliverGridDelegateWithMaxCrossAxisExtent(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 90,
               childAspectRatio: 1,
               crossAxisSpacing: 90,
@@ -37,18 +38,19 @@ class SignUpScreen extends StatelessWidget {
           padding: const EdgeInsets.all(60),
           itemCount: 5,
           itemBuilder: (ctx, i) => InkWell(
-            onTap: (){
-              Navigator.of(context).pushNamed(NavigationBar.routeName);
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  image: DecorationImage(image: AssetImage('assets/p3.png'),fit: BoxFit.cover)
-              ),
-              // height: 70.0,
-              // width: 70.0,
-            ),
-          )),
+                onTap: () {
+                  Navigator.of(context).pushNamed(NavigationBar.routeName);
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      image: DecorationImage(
+                          image: AssetImage('assets/p3.png'),
+                          fit: BoxFit.cover)),
+                  // height: 70.0,
+                  // width: 70.0,
+                ),
+              )),
     );
   }
 }

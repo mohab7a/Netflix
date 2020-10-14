@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:netflix_app/Screen/chooseyourplan.dart';
 import 'package:netflix_app/Screen/help_screen.dart';
 import 'package:netflix_app/Screen/login_screen.dart';
-import 'package:netflix_app/pagemodel.dart';
+import 'file:///C:/Users/HELAL/AndroidStudioProjects/Netflix/lib/Widget/pagemodel.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:page_view_indicator/page_view_indicator.dart';
+
 class GetStartedScreen extends StatefulWidget {
   static String routeName='/GetStartedScreen';
   @override
@@ -46,45 +47,49 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
         child: Stack(
           children: [
             PageView.builder(
-              onPageChanged: (index) {_pageIndexNotifier.value = index; },
-              itemCount:pages.length,
-              itemBuilder: (ctx, i) => Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 200),
-                    child: Container(
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                      image: AssetImage(pages[i].image),
-                    ))),
-                  ),
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 200),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            pages[i].title,
-                            style: TextStyle(
-                                fontSize: 26,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1),
-                            textAlign: TextAlign.center,
-                          ),
-                          SizedBox(height: 40),
-                          Text(
-                            pages[i].description,
-                            style: TextStyle(fontSize: 18, color: Colors.grey),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
+              onPageChanged: (index) {
+                _pageIndexNotifier.value = index;
+              },
+              itemCount: pages.length,
+              itemBuilder: (ctx, i) =>
+                  Stack(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 200),
+                        child: Container(
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(pages[i].image),
+                                ))),
                       ),
-                    ),
-                  )
-                ],
-              ),
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 200),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                pages[i].title,
+                                style: TextStyle(
+                                    fontSize: 26,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1),
+                                textAlign: TextAlign.center,
+                              ),
+                              SizedBox(height: 40),
+                              Text(
+                                pages[i].description,
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.grey),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -95,7 +100,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                   height: 120,
                 ),
                 FlatButton(
-                  onPressed:_privacyURL,
+                  onPressed: _privacyURL,
                   child: Text(
                     'PRIVACY',
                     style: TextStyle(
@@ -105,7 +110,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                   ),
                 ),
                 FlatButton(
-                  onPressed: (){
+                  onPressed: () {
                     Navigator.of(context).pushNamed(HelpScreen.routeName);
                   },
                   child: Text(
@@ -130,18 +135,21 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
             Transform.translate(
               offset: Offset(0, 225),
               child: Align(
-                  alignment: Alignment.center,
-                  child: _buildExample1(pages.length),
+                alignment: Alignment.center,
+                child: _buildExample1(pages.length),
               ),
             ),
             Align(
               alignment: Alignment.bottomCenter,
               child: SizedBox(
-                width: MediaQuery.of(context).size.width,
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
                 height: 55,
                 child: RaisedButton(
                   color: Colors.red[900],
-                  onPressed:(){
+                  onPressed: () {
                     Navigator.of(context).pushNamed(ChooseYourPlan.routeName);
                   },
                   child: Text(
@@ -157,32 +165,27 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
       ),
     );
   }
+
   PageViewIndicator _buildExample1(int length,) {
     return PageViewIndicator(
-      pageIndexNotifier:_pageIndexNotifier ,
+      pageIndexNotifier: _pageIndexNotifier,
       length: length,
-      normalBuilder: (animationController, index) => Circle(
-        size: 8.0,
-        color: Colors.grey,
-      ),
-      highlightedBuilder: (animationController, index) => ScaleTransition(
-        scale: CurvedAnimation(
-          parent: animationController,
-          curve: Curves.ease,
-        ),
-        child: Circle(
-          size: 12.0,
-          color: Colors.red,
-        ),
-      ),
+      normalBuilder: (animationController, index) =>
+          Circle(
+            size: 8.0,
+            color: Colors.grey,
+          ),
+      highlightedBuilder: (animationController, index) =>
+          ScaleTransition(
+            scale: CurvedAnimation(
+              parent: animationController,
+              curve: Curves.ease,
+            ),
+            child: Circle(
+              size: 12.0,
+              color: Colors.red,
+            ),
+          ),
     );
   }
 }
-
-// Widget _drawcircle(Color color) {
-//   return Container(
-//       margin: EdgeInsets.only(right: 7),
-//       width: 15,
-//       decoration: BoxDecoration(shape: BoxShape.circle, color: color));
-// }
-

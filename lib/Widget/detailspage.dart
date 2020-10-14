@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_app/Widget/share_button.dart';
 import 'dart:ui';
-import 'Widget/episode_block.dart';
+import 'episode_block.dart';
 import 'big_button.dart';
 import 'film_card.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';

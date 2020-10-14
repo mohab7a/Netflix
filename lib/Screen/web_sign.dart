@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_app/Screen/set_up_payment.dart';
-
 import 'help_screen.dart';
 import 'login_screen.dart';
+
 class WebSign extends StatefulWidget {
-  static String routeName= "WebSign";
+  static String routeName = "WebSign";
   @override
   _WebSignState createState() => _WebSignState();
 }
@@ -12,11 +12,10 @@ class WebSign extends StatefulWidget {
 class _WebSignState extends State<WebSign> {
   final _form = GlobalKey<FormState>();
   final _emailFocusNode = FocusScopeNode();
-  bool _checkValue=false;
-
+  bool _checkValue = false;
 
   static const kActionAppBarStyle =
-  TextStyle(color: Colors.black, fontWeight: FontWeight.bold);
+      TextStyle(color: Colors.black, fontWeight: FontWeight.bold);
 
   @override
   Widget build(BuildContext context) {
@@ -24,32 +23,35 @@ class _WebSignState extends State<WebSign> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-      elevation: 0,
-      backgroundColor: Colors.white,
-      title: Image.asset(
-        "assets/logo.png",
-        width: MediaQuery.of(context).size.width / 4,
-        height: MediaQuery.of(context).size.height,
+        elevation: 0,
+        backgroundColor: Colors.white,
+        title: Image.asset(
+          "assets/logo.png",
+          width: MediaQuery.of(context).size.width / 4,
+          height: MediaQuery.of(context).size.height,
+        ),
+        actions: [
+          Center(
+              child: InkWell(
+            onTap: () {
+              Navigator.of(context).pushNamed(HelpScreen.routeName);
+            },
+            child: Text(
+              "HELP",
+              style: kActionAppBarStyle,
+            ),
+          )),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Center(
+                child: InkWell(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(LoginScreen.routeName);
+                    },
+                    child: Text("SIGN IN", style: kActionAppBarStyle))),
+          )
+        ],
       ),
-      actions: [
-        Center(
-            child: InkWell(
-              onTap: (){
-                Navigator.of(context).pushNamed(HelpScreen.routeName);
-              },
-              child: Text(
-                "HELP",
-                style: kActionAppBarStyle,
-              ),
-            )),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Center(child: InkWell(
-              onTap: (){    Navigator.of(context).pushNamed(LoginScreen.routeName);},
-              child: Text("SIGN IN", style: kActionAppBarStyle))),
-        )
-      ],
-    ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 17),
         child: ListView(
@@ -58,27 +60,28 @@ class _WebSignState extends State<WebSign> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-        Padding(
-        padding: const EdgeInsets.only(bottom: 10),
-        child: RichText(
-            text: TextSpan(
-                text: "STEP",
-                style: TextStyle(color: Colors.grey.shade700),
-                children: [
-                  TextSpan(
-                      text: " 2 ",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold)),
-                  TextSpan(
-                      text: "OF",
-                      style: TextStyle(color: Colors.grey.shade700)),
-                  TextSpan(
-                      text: " 3",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold))
-                ])),),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: RichText(
+                      text: TextSpan(
+                          text: "STEP",
+                          style: TextStyle(color: Colors.grey.shade700),
+                          children: [
+                        TextSpan(
+                            text: " 2 ",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold)),
+                        TextSpan(
+                            text: "OF",
+                            style: TextStyle(color: Colors.grey.shade700)),
+                        TextSpan(
+                            text: " 3",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold))
+                      ])),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: Text(
@@ -108,73 +111,61 @@ class _WebSignState extends State<WebSign> {
                 ),
                 Form(
                     child: Column(
-                      //mainAxisAlignment:MainAxisAlignment.center,
-                      key: _form,
-                      children: [
-                        TextFormField(
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(16),
-                            filled: true,
-                            fillColor: Colors.white,
-                            hintText: 'Email',
-                            hintStyle: TextStyle(color: Colors.grey, fontSize: 20,),
-                            alignLabelWithHint: true,
-                            focusedBorder: OutlineInputBorder(
-
-                              borderSide: BorderSide(
-                                  color: Colors.blueAccent,
-                                  width: 1
-                              ),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-
-                              borderSide: BorderSide(
-                                  color: Colors.black,
-                                  width: 1
-                              ),
-                            ),
-                          ),
-
-                          textInputAction: TextInputAction.next,
-                          keyboardType: TextInputType.emailAddress,
-                          onFieldSubmitted: (_) {
-                            FocusScope.of(context).requestFocus(_emailFocusNode);
-                          },
+                  //mainAxisAlignment:MainAxisAlignment.center,
+                  key: _form,
+                  children: [
+                    TextFormField(
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(16),
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText: 'Email',
+                        hintStyle: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 20,
                         ),
-                        SizedBox(
-                          height: 10,
+                        alignLabelWithHint: true,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.blueAccent, width: 1),
                         ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(16),
-                            filled: true,
-                            fillColor: Colors.white,
-                            hintText: 'Password',
-                            hintStyle: TextStyle(color: Colors.grey, fontSize: 20),
-                            focusedBorder: OutlineInputBorder(
-
-                              borderSide: BorderSide(
-                                  color: Colors.blueAccent,
-                                  width: 1
-                              ),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-
-                              borderSide: BorderSide(
-                                  color: Colors.black,
-                                  width: 1
-                              ),
-                            ),
-                          ),
-                          obscureText: true,
-                          textInputAction: TextInputAction.done,
-                          onFieldSubmitted: (_) {
-                            FocusScope.of(context).requestFocus(_emailFocusNode);
-                          },
-                          focusNode: _emailFocusNode,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black, width: 1),
                         ),
-                      ],
-                    )),
+                      ),
+                      textInputAction: TextInputAction.next,
+                      keyboardType: TextInputType.emailAddress,
+                      onFieldSubmitted: (_) {
+                        FocusScope.of(context).requestFocus(_emailFocusNode);
+                      },
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(16),
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText: 'Password',
+                        hintStyle: TextStyle(color: Colors.grey, fontSize: 20),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.blueAccent, width: 1),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black, width: 1),
+                        ),
+                      ),
+                      obscureText: true,
+                      textInputAction: TextInputAction.done,
+                      onFieldSubmitted: (_) {
+                        FocusScope.of(context).requestFocus(_emailFocusNode);
+                      },
+                      focusNode: _emailFocusNode,
+                    ),
+                  ],
+                )),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Row(
@@ -182,28 +173,26 @@ class _WebSignState extends State<WebSign> {
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: Container(
-
-                        width: 20,
-                        height: 20,
+                          width: 20,
+                          height: 20,
                           decoration: BoxDecoration(
-                            border:Border.all(
-                              color: Colors.black
-                            )
-                          ),
+                              border: Border.all(color: Colors.black)),
                           child: Checkbox(
-
                               activeColor: Colors.blue,
-                              value: _checkValue, onChanged: (value){
-                            setState(() {
-                              _checkValue=value;
-                            });
-                          }),
+                              value: _checkValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  _checkValue = value;
+                                });
+                              }),
                         ),
                       ),
                       Text(
                         "Please do not email me Netflix special\noffers",
-                        style: TextStyle(color: Colors.grey.shade700, fontSize: MediaQuery.of(context).size.width/25,
-                      ),
+                        style: TextStyle(
+                          color: Colors.grey.shade700,
+                          fontSize: MediaQuery.of(context).size.width / 25,
+                        ),
                       )
                     ],
                   ),
@@ -213,9 +202,16 @@ class _WebSignState extends State<WebSign> {
                   child: FlatButton(
                     minWidth: double.infinity,
                     height: 50,
-                    onPressed: (){
+                    onPressed: () {
                       Navigator.of(context).pushNamed(SetUpPayment.routeName);
-                    }, child: Center(child: Text("CONTINUE",style: TextStyle(fontSize: 20),)),color: Colors.red,),
+                    },
+                    child: Center(
+                        child: Text(
+                      "CONTINUE",
+                      style: TextStyle(fontSize: 20),
+                    )),
+                    color: Colors.red,
+                  ),
                 )
               ],
             )

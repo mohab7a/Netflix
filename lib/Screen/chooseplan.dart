@@ -1,11 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_app/Screen/login_screen.dart';
 import 'package:netflix_app/Screen/web_sign.dart';
-
-import '../dealcard.dart';
-import '../dealoption.dart';
+import '../Widget/dealcard.dart';
 import 'help_screen.dart';
 
 class ChoosePlan extends StatefulWidget {
