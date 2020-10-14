@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_app/Screen/set_up_payment.dart';
 
 import 'help_screen.dart';
 import 'login_screen.dart';
@@ -212,7 +213,9 @@ class _WebSignState extends State<WebSign> {
                   child: FlatButton(
                     minWidth: double.infinity,
                     height: 50,
-                    onPressed: (){}, child: Center(child: Text("CONTINUE",style: TextStyle(fontSize: 20),)),color: Colors.red,),
+                    onPressed: (){
+                      Navigator.of(context).pushNamed(SetUpPayment.routeName);
+                    }, child: Center(child: Text("CONTINUE",style: TextStyle(fontSize: 20),)),color: Colors.red,),
                 )
               ],
             )
