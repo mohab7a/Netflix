@@ -2,14 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:netflix_app/Screen/home_plus.dart';
 import 'package:netflix_app/Screen/video_play.dart';
 import 'package:netflix_app/Widget/category_title.dart';
+import 'package:netflix_app/Widget/detailspage.dart';
 import 'package:netflix_app/Widget/recommended_item.dart';
 import 'package:netflix_app/Widget/staring_item.dart';
 import 'package:netflix_app/Widget/top_ten_item.dart';
 import 'package:netflix_app/Widget/trend_item.dart';
-import 'file:///C:/Users/HELAL/AndroidStudioProjects/Netflix/lib/Widget/detailspage.dart';
 
-class HomeScreen extends StatelessWidget {
+import 'my_list.dart';
+
+class HomeScreen extends StatefulWidget {
   static String routeName = '/HomeScreen';
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +31,6 @@ class HomeScreen extends StatelessWidget {
             snap: true,
             // pinned: true,
             toolbarHeight: 50,
-            //stretch: true,
             //expandedHeight: MediaQuery.of(context).size.height / 1.8,
             elevation: 0,
             automaticallyImplyLeading: false,
@@ -62,7 +69,9 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     FlatButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (ctx)=>MyList(index)));
+                      },
                       child: Text(
                         'My List',
                         style: TextStyle(
@@ -106,7 +115,8 @@ class HomeScreen extends StatelessWidget {
                         child: Column(
                           children: <Widget>[
                             IconButton(
-                              icon: Icon(Icons.done, color: Colors.white),
+                              icon:index>0?Icon(Icons.done, color: Colors.white):
+                              Icon(Icons.add, color: Colors.white),
                               onPressed: () {
                                 _showToast(context);
                               },
@@ -169,9 +179,13 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topRight,
+                      colors: [Colors.black, Colors.blueGrey]),
                   image: DecorationImage(
-                image: AssetImage('assets/Intro.jpg'),
-                fit: BoxFit.fill,
+                image: AssetImage('assets/Vampire.jpg'),
+                fit: BoxFit.fitHeight,
                 colorFilter: ColorFilter.mode(
                     Colors.black.withOpacity(0.5), BlendMode.multiply),
               )),
@@ -339,87 +353,16 @@ class HomeScreen extends StatelessWidget {
           ),
 
         ],
-
-        // appBar: AppBar(
-        //   elevation:0 ,
-        //   automaticallyImplyLeading: false,
-        //   title: Image.asset(
-        //     'assets/l.png',
-        //     width: 80,
-        //     height: 60,
-        //   ),
-        //   actions: [FlatButton(
-        //     onPressed: () {
-        //     },
-        //     child: Text(
-        //       'PRIVACY',
-        //       style: TextStyle(
-        //         color: Colors.white,
-        //         fontSize: 16,
-        //       ),
-        //     ),
-        //   ),
-        //     FlatButton(
-        //       onPressed: () {},
-        //       child: Text(
-        //         'HELP',
-        //         style: TextStyle(
-        //           color: Colors.white,
-        //           fontSize: 16,
-        //         ),
-        //       ),
-        //     ),
-        //     FlatButton(
-        //       onPressed: () {
-        //
-        //       },
-        //       child: Text(
-        //         'SIGN IN',
-        //         style: TextStyle(color: Colors.white, fontSize: 16),
-        //       ),
-        //     ),],
-        //   backgroundColor: Colors.black,
-        // ),
-        // body: Container(
-        //   color: Colors.black54,
-        //   child: SingleChildScrollView(
-        //     child: Column(
-        //       crossAxisAlignment: CrossAxisAlignment.start,
-        //       children: [
-        //         InkWell(child: MovieViewItem(),onTap: (){Navigator.of(context).pushNamed(MovieScreen.routeName);},),
-        //         SizedBox(
-        //           height: 10,
-        //         ),
-        //         Text("Staring"),
-        //         SizedBox(
-        //           height: 10,
-        //         ),
-        //         StaringItem(),
-        //         SizedBox(
-        //           height: 10,
-        //         ),
-        //         Text("Recommended for you"),
-        //         SizedBox(
-        //           height: 10,
-        //         ),
-        //         RecommendedItem(),
-        //         SizedBox(
-        //           height: 10,
-        //         ),
-        //         Text("Trending"),
-        //         SizedBox(
-        //           height: 10,
-        //         ),
-        //         TrendItem()
-        //       ],
-        //     ),
-        //   ),
-        // ),
       ),
     );
   }
 
+  int index=0;
+
   void _showToast(BuildContext context) {
+    setState(() {
+      index++;
+    });
     final scaffold = Scaffold.of(context);
     scaffold.hideCurrentSnackBar();
     scaffold.showSnackBar(

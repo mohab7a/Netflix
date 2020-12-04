@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
-class TrendItem extends StatelessWidget {
+import 'dart:math';
+class TrendItem extends StatefulWidget {
+  @override
+  _TrendItemState createState() => _TrendItemState();
+}
+
+class _TrendItemState extends State<TrendItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -9,20 +15,15 @@ class TrendItem extends StatelessWidget {
       padding: EdgeInsets.all(8),
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: 5,
+          itemCount: 10,
           itemBuilder: (context, i) => Row(
             children: [
               Container(
+                width: 120,
+                height: 200,
                 decoration: BoxDecoration(
-                  //image: DecorationImage(image:AssetImage('assets/Splash.png'),fit: BoxFit.fill,),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: ClipRRect(
-                  child: Image.asset(
-                    'assets/Splash.png',
-                    width: 100,
-                    height: 200,
-                  ),
+                  image: DecorationImage(image:AssetImage( 'assets/${ Random().nextInt(10)+1}.png',
+                  ),fit: BoxFit.fill,colorFilter:ColorFilter.mode(Colors.white12, BlendMode.lighten) ),
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),

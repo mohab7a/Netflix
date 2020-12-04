@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 class OriginalsItem extends StatelessWidget {
   @override
@@ -19,8 +21,8 @@ class OriginalsItem extends StatelessWidget {
                 ),
                 child: ClipRRect(
                   child: Image.asset(
-                    'assets/Splash.png',
-                    width: 150,
+                    'assets/${ Random().nextInt(10)+1}.png',
+                    width: 170,
                     height: 300,fit: BoxFit.fill,
                   ),
                   borderRadius: BorderRadius.circular(5),

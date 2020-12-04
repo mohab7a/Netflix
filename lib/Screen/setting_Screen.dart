@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/HELAL/AndroidStudioProjects/Netflix/lib/Widget/switchlistTile.dart';
+import 'package:netflix_app/Widget/switchlistTile.dart';
 import '../Widget/ListTile.dart';
 import '../Widget/dividerTitle.dart';
 

@@ -39,13 +39,6 @@ class _SmartDownloadState extends State<SmartDownload> {
                 });
               })
         ],
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-          ),
-          onPressed: () {},
-        ),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15),

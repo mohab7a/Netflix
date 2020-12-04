@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-class Button extends StatelessWidget {
-  
+class Button extends StatefulWidget {
+  static int index=0;
   Button({this.color,this.icon,this.textColor,this.text,this.iconColor});
   final Color color;
   //color white
@@ -11,30 +11,39 @@ class Button extends StatelessWidget {
   final Color  iconColor;
 
   @override
+  _ButtonState createState() => _ButtonState();
+}
+
+class _ButtonState extends State<Button> {
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(2.5),
       child: RaisedButton(
-        onPressed: () {},
+        onPressed: () {
+          setState(() {
+            Button.index++;
+          });
+        },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),
           //   side: BorderSide(color: Colors.red)
         ),
-        color:color,
+        color:widget.color,
         child: Padding(
           padding: const EdgeInsets.all(5),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
-                icon,
+                widget.icon,
                 size: 35,
-                color: iconColor,
+                color: widget.iconColor,
               ),
               Text(
-               text,
+               widget.text,
                 style: TextStyle(
-                  color:textColor,
+                  color:widget.textColor,
                   fontSize: 20,
                 ),
               )

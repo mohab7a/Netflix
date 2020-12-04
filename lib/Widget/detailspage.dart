@@ -36,11 +36,11 @@ class _DetailsPageState extends State<DetailsPage>
               width: double.infinity,
               height: MediaQuery.of(context).size.height / 2,
               decoration: BoxDecoration(
-                color: Colors.blueGrey
-                  // gradient: LinearGradient(
-                  //     begin: Alignment.bottomCenter,
-                  //     end: Alignment.topRight,
-                  //     colors: [Colors.black, Colors.blueGrey])
+                //color: Colors.blueGrey
+                  gradient: LinearGradient(
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topRight,
+                      colors: [Colors.black, Colors.blueGrey])
               ),
               child: Padding(
                 padding: EdgeInsets.only(top: 50),

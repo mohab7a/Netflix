@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:netflix_app/Screen/help_screen.dart';
 import 'package:netflix_app/Screen/setting_Screen.dart';
+import 'package:netflix_app/Widget/SocialMediaButton.dart';
 import 'package:netflix_app/Widget/SocialMediaDivider.dart';
-import 'file:///C:/Users/HELAL/AndroidStudioProjects/Netflix/lib/Widget/listItem.dart';
+import 'package:netflix_app/Widget/listItem.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'file:///C:/Users/HELAL/AndroidStudioProjects/Netflix/lib/Widget/SocialMediaButton.dart';
 
 import 'login_screen.dart';
 import 'manage_profile.dart';
@@ -24,7 +24,8 @@ class _MoreScreenState extends State<MoreScreen> {
       throw 'Could not launch $url';
     }
   }
-
+bool big =true;
+  bool small=true;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -57,26 +58,63 @@ class _MoreScreenState extends State<MoreScreen> {
                     height: 70.0,
                     width: 70.0,
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('assets/nk.jpg'),
-                          fit: BoxFit.cover),
-                      border: Border.all(color: Colors.white, width: 2.4),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    margin: EdgeInsets.all(5.0),
-                    height: 90.0,
-                    width: 90.0,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
+                 InkWell(
+                   onTap: (){
+                     setState(() {
+                       big=!big;
+                       small=!small;
+                     });
+                   },
+                   child:  big==false?Container(
+                     decoration: BoxDecoration(
+                         borderRadius: BorderRadius.circular(5),
+                         image: DecorationImage(
+                             image: AssetImage('assets/p3.png'),
+                             fit: BoxFit.cover)),
+                     margin: EdgeInsets.only(right: 5.0),
+                     height: 70.0,
+                     width: 70.0,
+                   ): Container(
+                     decoration: BoxDecoration(
+                       image: DecorationImage(
+                           image: AssetImage('assets/nk.jpg'),
+                           fit: BoxFit.cover),
+                       border: Border.all(color: Colors.white, width: 2.4),
+                       borderRadius: BorderRadius.circular(5),
+                     ),
+                     margin: EdgeInsets.all(5.0),
+                     height: 85.0,
+                     width: 85.0,
+                   ),
+                 ),
+                  InkWell(
+                    onTap: (){
+                      setState(() {
+                        big=!big;
+                        small=!small;
+                      });
+                    },
+                    child:  small==true?Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          image: DecorationImage(
+                              image: AssetImage('assets/p2.png'),
+                              fit: BoxFit.cover)),
+                      margin: EdgeInsets.only(right: 5.0),
+                      height: 70.0,
+                      width: 70.0,
+                    ): Container(
+                      decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage('assets/p3.png'),
-                            fit: BoxFit.cover)),
-                    height: 70.0,
-                    width: 70.0,
+                            image: AssetImage('assets/nk.jpg'),
+                            fit: BoxFit.cover),
+                        border: Border.all(color: Colors.white, width: 2.4),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      margin: EdgeInsets.all(5.0),
+                      height: 85.0,
+                      width: 85.0,
+                    ),
                   ),
                   Container(
                     margin: EdgeInsets.only(left: 5.0),

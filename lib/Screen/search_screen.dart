@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -35,9 +37,13 @@ class SearchScreen extends StatelessWidget {
             centerTitle: true,
             title: TextField(
               decoration: InputDecoration(
-                suffixIcon: Icon(Icons.mic),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide.none
+                ),
+                suffixIcon: Icon(Icons.mic,color:Colors.white38 ,),
+
                 hintText: 'Search for a show, movie,genre,etc',
-                prefixIcon: Icon(Icons.search),
+                prefixIcon: Icon(Icons.search,color:Colors.white38 ,),
                 filled: true,
                 fillColor: Colors.grey,
                 hintStyle: TextStyle(color: Colors.white38, fontSize: 18),
@@ -64,13 +70,17 @@ class SearchScreen extends StatelessWidget {
                               Padding(
                                 padding:
                                     const EdgeInsets.only(right: 10, left: 1),
-                                child: ClipRRect(
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width/3,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(image:AssetImage( 'assets/${ Random().nextInt(10)+1}.png',
+                                    ),fit: BoxFit.fill,colorFilter:ColorFilter.mode(Colors.white12, BlendMode.lighten) ),
                                     borderRadius: BorderRadius.circular(8),
-                                    child: Image.asset('assets/Intro.jpg')),
+                                  ),),
                               ),
                               Text(
-                                'Amar',
-                                style: TextStyle(color: Colors.white),
+                                'Film Name',
+                                style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width/24),
                               ),
                               Spacer(),
                               IconButton(

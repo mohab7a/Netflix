@@ -18,7 +18,7 @@ class CreditTextField extends StatelessWidget {
             fontSize: 20,
           ),
           alignLabelWithHint: true,
-          suffixIcon: Icon(icon),
+          suffixIcon: Icon(icon,color:Colors.white38,),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.blueAccent, width: 1),
           ),

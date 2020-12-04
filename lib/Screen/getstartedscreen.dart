@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:netflix_app/Screen/chooseyourplan.dart';
 import 'package:netflix_app/Screen/help_screen.dart';
 import 'package:netflix_app/Screen/login_screen.dart';
-import 'file:///C:/Users/HELAL/AndroidStudioProjects/Netflix/lib/Widget/pagemodel.dart';
+import 'package:netflix_app/Widget/pagemodel.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:page_view_indicator/page_view_indicator.dart';
 

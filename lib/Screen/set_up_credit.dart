@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:netflix_app/Screen/help_screen.dart';
 import 'package:netflix_app/Screen/home_screen.dart';
 import 'package:netflix_app/Screen/login_screen.dart';
+import 'package:netflix_app/Screen/navigation_bar.dart';
+import 'package:netflix_app/Screen/signup_screen.dart';
 import 'package:netflix_app/Widget/credit_text_field.dart';
 
 class SetUpCredit extends StatefulWidget {
@@ -257,7 +259,7 @@ class _SetUpCreditState extends State<SetUpCredit> {
                 height: 50,
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (ctx) {
-                    return HomeScreen();
+                    return NavigationBar();
                   }));
                 },
                 child: Center(

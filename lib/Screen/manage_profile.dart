@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_app/Screen/edit_profile.dart';
 import 'package:netflix_app/Screen/navigation_bar.dart';
 
 class ManageProfile extends StatelessWidget {
@@ -23,10 +24,10 @@ class ManageProfile extends StatelessWidget {
               crossAxisSpacing: 90,
               mainAxisSpacing: 60),
           padding: const EdgeInsets.all(60),
-          itemCount: 5,
+          itemCount: EditProfile.index,
           itemBuilder: (ctx, i) => InkWell(
                 onTap: () {
-                  Navigator.of(context).pushNamed(NavigationBar.routeName);
+                  Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>EditProfile()));
                 },
                 child: Container(
                   decoration: BoxDecoration(

@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:netflix_app/Screen/video_play.dart';
 import 'package:netflix_app/Widget/category_title.dart';
+import 'package:netflix_app/Widget/detailspage.dart';
 import 'package:netflix_app/Widget/originals_item.dart';
 import 'package:netflix_app/Widget/recommended_item.dart';
 import 'package:netflix_app/Widget/staring_item.dart';
 import 'package:netflix_app/Widget/top_ten_item.dart';
 import 'package:netflix_app/Widget/trend_item.dart';
-import 'file:///C:/Users/HELAL/AndroidStudioProjects/Netflix/lib/Widget/detailspage.dart';
 
 class HomePlusScreen extends StatelessWidget {
   final String category;
@@ -24,9 +25,9 @@ class HomePlusScreen extends StatelessWidget {
             backgroundColor: Colors.transparent,
             floating: true,
             snap: true,
+            expandedHeight: 51,
             // pinned: true,
             toolbarHeight: 50,
-            //stretch: true,
             //expandedHeight: MediaQuery.of(context).size.height / 1.8,
             elevation: 0,
             automaticallyImplyLeading: false,
@@ -228,7 +229,9 @@ class HomePlusScreen extends StatelessWidget {
                           ),
                           FlatButton(
                             color: Colors.white,
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder:(ctx)=>VideoApp()));
+                            },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: <Widget>[
@@ -275,9 +278,13 @@ class HomePlusScreen extends StatelessWidget {
                     ],
                   ),
                   decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topRight,
+                          colors: [Colors.black, Colors.blueGrey]),
                       image: DecorationImage(
-                        image: AssetImage('assets/Intro.jpg'),
-                        fit: BoxFit.fill,
+                        image: AssetImage('assets/Vampire.jpg'),
+                        fit: BoxFit.fitHeight,
                         colorFilter: ColorFilter.mode(
                             Colors.black.withOpacity(0.5), BlendMode.multiply),
                       )),

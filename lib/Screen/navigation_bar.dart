@@ -4,6 +4,7 @@ import 'package:netflix_app/Screen/downloadScreen.dart';
 import 'package:netflix_app/Screen/home_screen.dart';
 import 'package:netflix_app/Screen/moreScreen.dart';
 import 'package:netflix_app/Screen/search_screen.dart';
+import 'package:netflix_app/Widget/big_button.dart';
 
 class NavigationBar extends StatefulWidget {
   static String routeName = '/NavigationBarScreen';
@@ -13,7 +14,6 @@ class NavigationBar extends StatefulWidget {
 
 class _NavigationBarState extends State<NavigationBar> {
   int _index = 0;
-
   @override
   Widget build(BuildContext context) {
     List<Widget> screens = [];
@@ -21,7 +21,7 @@ class _NavigationBarState extends State<NavigationBar> {
       HomeScreen(),
       SearchScreen(),
       ComingSoonScreen(),
-      DownloadScreen(),
+      DownloadScreen(Button.index),
       MoreScreen()
     ];
 

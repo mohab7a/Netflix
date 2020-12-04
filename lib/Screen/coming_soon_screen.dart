@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:netflix_app/Screen/notifications_screen.dart';
 
@@ -42,8 +44,16 @@ class ComingSoonScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          color: Colors.green,
                           width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomCenter,
+                                //colors: [Colors.deepPurple,Colors.red,Colors.blue]),
+                                colors: [Colors.deepPurple,Colors.amber,Colors.blueAccent]),
+                              image: DecorationImage(image:AssetImage('assets/${ Random().nextInt(10)+1}.png'),fit: BoxFit.fitHeight)
+                          ),
+                          child: Center(child: Icon(Icons.slow_motion_video_sharp,size: 120,color: Colors.grey[50],)),
                           height: 300,
                         ),
                         Padding(

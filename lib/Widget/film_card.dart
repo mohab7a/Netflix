@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 class FilmGridCard extends StatelessWidget {
@@ -13,7 +13,7 @@ class FilmGridCard extends StatelessWidget {
             image: DecorationImage(
               fit: BoxFit.fill,
                 image: AssetImage(
-                    "assets/Vampire.jpg"
+                  'assets/${ Random().nextInt(10)+1}.png',
                 )
             )
         )

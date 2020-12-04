@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class TopTenItem extends StatelessWidget {
@@ -27,7 +29,7 @@ class TopTenItem extends StatelessWidget {
                   ),
                   child: ClipRRect(
                     child: Image.asset(
-                      'assets/Splash.png',
+                      'assets/${ Random().nextInt(10)+1}.png',
                       width: 100,
                       height: 200,
                     ),

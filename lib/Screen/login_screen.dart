@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             borderSide: BorderSide.none,
                           ),
                         ),
-                        autofocus: true,
+                        //autofocus: true,
                         textInputAction: TextInputAction.next,
                         keyboardType: TextInputType.emailAddress,
                         onFieldSubmitted: (_) {

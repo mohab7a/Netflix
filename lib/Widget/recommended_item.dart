@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 class RecommendedItem extends StatelessWidget {
   const RecommendedItem({
@@ -17,11 +19,11 @@ class RecommendedItem extends StatelessWidget {
             children: [
               Column(children: [
                 Container(
-                  width: 100,
+                  width: 120,
                   height: 160,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(topRight:Radius.circular(5),topLeft: Radius.circular(5) ),
-                    image: DecorationImage(image: AssetImage('assets/Vampire.jpg'),fit: BoxFit.cover),
+                    image: DecorationImage(image: AssetImage('assets/${ Random().nextInt(10)+10}.png'),fit: BoxFit.cover),
                   ),
                   child: Center(
                     child: Container(
@@ -37,7 +39,7 @@ class RecommendedItem extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: 100,
+                  width: 120,
                   height: 50,
                   decoration: BoxDecoration(
                     color: Colors.grey[800],
